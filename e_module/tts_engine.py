@@ -85,7 +85,6 @@ class SynthResult:
     entity_stretch_ratio: float = 1.0
     clarity_band_db: float = 0.0
     clear_speech: bool = False
-    alignment_path: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -283,7 +282,6 @@ class Tacotron2Engine:
         clear_speech: bool = False,
         trim_silence: bool = False,
         entity_stretch: float = 1.18,
-        compute_mel_spans: bool = False,
     ) -> Dict[str, Any]:
         torch.manual_seed(self.seed)
         np.random.seed(self.seed)
@@ -308,7 +306,7 @@ class Tacotron2Engine:
 
         mel_spans: List[Tuple[int, int, str]] = []
         stretch_ratio = 1.0
-        if (clear_speech or compute_mel_spans) and entity_char_spans:
+        if clear_speech and entity_char_spans:
             mel_spans = locate_entity_mel_frames(
                 align_np,
                 pinyin_text,
@@ -352,7 +350,6 @@ class Tacotron2Engine:
             "hit_max_steps": hit_max_steps,
             "attn_metrics": attn_metrics,
             "stretch_ratio": stretch_ratio,
-            "alignment": align_np,
             "mel_spans": mel_spans,
         }
 
@@ -400,7 +397,6 @@ class Tacotron2Engine:
         trim_silence: bool = False,
         entity_stretch: float = 1.18,
         clarity_eq_gain_db: float = 2.8,
-        save_alignment_path: Optional[Path] = None,
     ) -> SynthResult:
         """Synthesize Chinese reply text to a 22050 Hz mono 16-bit PCM WAV file."""
         t_total_0 = time.perf_counter()
@@ -428,7 +424,7 @@ class Tacotron2Engine:
         cache_wav = self.cache_dir / f"{cache_key}.wav"
         cache_meta = self.cache_dir / f"{cache_key}.json"
 
-        if use_cache and is_cacheable and cache_wav.exists() and cache_meta.exists() and save_alignment_path is None:
+        if use_cache and is_cacheable and cache_wav.exists() and cache_meta.exists():
             output_wav.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(cache_wav, output_wav)
             sr, data = wavfile.read(str(output_wav))
@@ -468,7 +464,6 @@ class Tacotron2Engine:
         focus_list: List[float] = []
         mono_list: List[float] = []
         stretch_list: List[float] = []
-        saved_alignments: List[Dict[str, Any]] = []
 
         if mode == "baseline_raw":
             torch.manual_seed(self.seed)
@@ -512,7 +507,6 @@ class Tacotron2Engine:
                     clear_speech=clear_speech,
                     trim_silence=trim_silence,
                     entity_stretch=entity_stretch,
-                    compute_mel_spans=(save_alignment_path is not None),
                 )
                 t2_total_ms += seg_out["t2_ms"]
                 voc_total_ms += seg_out["voc_ms"]
@@ -521,16 +515,6 @@ class Tacotron2Engine:
                 mono_list.append(seg_out["attn_metrics"]["monotonicity_score"])
                 if seg_out["mel_spans"]:
                     stretch_list.append(seg_out["stretch_ratio"])
-
-                if save_alignment_path is not None:
-                    saved_alignments.append(
-                        {
-                            "text": seg.text,
-                            "pinyin": seg.pinyin,
-                            "alignment": seg_out["alignment"].tolist(),
-                            "mel_spans": seg_out["mel_spans"],
-                        }
-                    )
 
                 seg_wav = seg_out["wav"]
                 if len(fe_res.segments) > 1 or clear_speech:
@@ -554,12 +538,6 @@ class Tacotron2Engine:
         avg_focus = round(float(np.mean(focus_list)), 4) if focus_list else 0.0
         avg_mono = round(float(np.mean(mono_list)), 4) if mono_list else 0.0
         avg_stretch = round(float(np.mean(stretch_list)), 4) if stretch_list else 1.0
-
-        align_saved_str: Optional[str] = None
-        if save_alignment_path is not None and saved_alignments:
-            save_alignment_path.parent.mkdir(parents=True, exist_ok=True)
-            save_alignment_path.write_text(json.dumps(saved_alignments, ensure_ascii=False), encoding="utf-8")
-            align_saved_str = str(save_alignment_path)
 
         if use_cache and is_cacheable and not any_max_steps:
             self.cache_dir.mkdir(parents=True, exist_ok=True)
@@ -604,7 +582,6 @@ class Tacotron2Engine:
             entity_stretch_ratio=avg_stretch,
             clarity_band_db=clarity_band_db,
             clear_speech=clear_speech,
-            alignment_path=align_saved_str,
         )
 
     def synthesize_and_play_pipelined(

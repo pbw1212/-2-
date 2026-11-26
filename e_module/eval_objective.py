@@ -248,14 +248,12 @@ def run_exp2b_attention_and_frontend(
     eng.warmup()
 
     modes = ("basic_pinyin", "tn_only", "tn_prosody", "tn_psp_ec")
-    align_dir = OUTPUTS_DIR / "alignments"
     out_dir = OUTPUTS_DIR / "exp2b_wavs"
     records: List[Dict[str, Any]] = []
 
     for sample in EXTENDED_ABLATION_SAMPLES:
         for mode in modes:
             wav_p = out_dir / mode / f"{sample.sample_id}.wav"
-            save_align = align_dir / f"{sample.sample_id}_{mode}.json" if sample.sample_id in ("short_prompt", "multi_field_confirm") else None
             res = eng.synthesize(
                 text=sample.text,
                 output_wav=wav_p,
@@ -263,7 +261,6 @@ def run_exp2b_attention_and_frontend(
                 action=sample.action,
                 pause_ms=DEFAULT_PAUSE_MS,
                 use_cache=False,
-                save_alignment_path=save_align,
             )
             records.append(
                 {
