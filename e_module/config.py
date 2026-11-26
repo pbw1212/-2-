@@ -38,7 +38,7 @@ OUTPUTS_DIR = E_MODULE_DIR / "outputs"
 BASELINE_OUTPUTS_DIR = OUTPUTS_DIR / "baseline"
 ABLATION_OUTPUTS_DIR = OUTPUTS_DIR / "ablation"
 CACHE_DIR = OUTPUTS_DIR / "prompt_cache"
-DOCS_DIR = E_MODULE_DIR / "docs"
+DOCS_DIR = PROJECT_ROOT / "docs"
 
 # Fixed model architecture parameters matching checkpoint_latest.pt
 MODEL_CONFIG = {

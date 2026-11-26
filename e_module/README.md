@@ -15,7 +15,7 @@
 - `eval_objective.py` & `plot_results.py`：99 句标贝真值 DTW-MCD、Attention 稳定性、Clear Speech 声学校验、流水线 TTFA 评测以及 4 张答辩级 300 DPI 可视化图表生成脚本。
 - `latency_analyzer.py`：读取 JSONL 事件日志并统计中位数、P90、RTF 与分段延迟。
 - `run_benchmarks.py` & `run_mock_integration.py`：消融对比实验、6 档速度/压缩评测及 6 大全组联调场景端到端回放脚本。
-- `docs/interface_spec_v1.md`：E 模块维护的第一版冻结接口规范。
+- [`docs/interface_spec_v1.md`](../docs/interface_spec_v1.md)：E 模块维护的第一版冻结接口规范（位于仓库根目录 `docs/`）。
 
 ## 本地运行与测试（Mac）
 

@@ -34,19 +34,20 @@
 ├── c_module/                      # 模块 C：口语理解与 FAQ 问答
 ├── d_module/                      # 模块 D：多轮对话管理与 SQLite 登记
 ├── e_module/                      # 模块 E：离线 TTS、门控服务、评测与图表（当前已合入）
-│   ├── docs/interface_spec_v1.md  # 第一版冻结联调接口规范
 │   ├── models/                    # 轻量 SyllableBiGRUCRF 韵律预测权重（~2 MB）
 │   ├── outputs/                   # 评测 JSON、模拟联调日志与答辩 PNG 图表（outputs/figures/）
 │   └── tests/                     # E 模块单元测试（25 项）
-├── integration/                   # 全组联调主控/消息总线入口（后续合入）
-└── 离线复诊登记助手_*.docx         # 全组联调总方案与 A~E 模块交付方案文档
+├── docs/                          # 全部项目文档（全组联调接口规范 + 各模块交付方案）
+│   ├── interface_spec_v1.md       # 第一版冻结联调接口规范
+│   └── *.docx                     # 全组联调总方案与 A~E 模块工程实施方案
+└── integration/                   # 全组联调主控/消息总线入口（后续合入）
 ```
 
 ---
 
 ## 3. 与 E 模块联调对接指南（`schema_version = 1`）
 
-- **接口规范文档**：详见 [`e_module/docs/interface_spec_v1.md`](e_module/docs/interface_spec_v1.md)。
+- **接口规范文档**：详见 [`docs/interface_spec_v1.md`](docs/interface_spec_v1.md)（全组总方案与各模块交付方案均统一存放于 `docs/`）。
 - **共享事件信封与校验**：可直接复用 [`e_module/events.py`](e_module/events.py)：
   - `make_turn_context` / `make_reply_request` / `make_listen_start` / `make_playback_result`
   - `validate_event` / `to_json_line` / `from_json_line`
