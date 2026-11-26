@@ -1,0 +1,30 @@
+# OS / editor artifacts
+.DS_Store
+**/.DS_Store
+
+# Python & test artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# External large course assets & datasets (keep outside git)
+语音信息处理综合实践网盘/
+语音信息处理综合实践/
+speech/
+
+# Generated WAV audio and heavy experiment scratch outputs
+*.wav
+e_module/outputs/ablation/
+e_module/outputs/alignments/
+e_module/outputs/baseline/
+e_module/outputs/benchmark_wavs/
+e_module/outputs/clear_speech_demo/
+e_module/outputs/exp2b_wavs/
+e_module/outputs/exp4_pipelined/
+e_module/outputs/mock_integration/
+e_module/outputs/prompt_cache/
+e_module/outputs/service_runtime/

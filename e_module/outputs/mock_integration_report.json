@@ -1,0 +1,114 @@
+{
+  "scenarios_passed": [
+    "1_full_clinic_flow_multi_turn",
+    "2_stale_turn_ignored",
+    "3_duplicate_reply_id_dedup",
+    "4_playback_failure_stop_and_retry",
+    "5_next_turn_listen_recovery",
+    "6_half_duplex_gating"
+  ],
+  "played_wav_count": 5,
+  "played_wavs": [
+    "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration/wavs/s_demo_01_t0_r_open_0.wav",
+    "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration/wavs/s_demo_01_t1_r_faq_1.wav",
+    "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration/wavs/s_demo_01_t2_r_confirm_2.wav",
+    "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration/wavs/s_demo_01_t3_r_resched_3.wav",
+    "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration/wavs/s_demo_01_t4_r_done_4_retry2.wav"
+  ],
+  "protocol_jsonl": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration_protocol.jsonl",
+  "trace_jsonl": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration_trace.jsonl",
+  "latency_analysis": {
+    "trace_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/mock_integration_trace.jsonl",
+    "turn_count": 6,
+    "summary": {
+      "tts_total_ms_median": 758.75,
+      "tts_total_ms_p90": 1437.89,
+      "e_request_to_play_start_ms_median": 759.0,
+      "e_request_to_play_start_ms_p90": 1421.4,
+      "turn_stop_to_play_start_ms_median": 1673.0,
+      "turn_stop_to_play_start_ms_p90": 1673.0,
+      "uncached_rtf_median": 0.15,
+      "uncached_rtf_p90": 0.17
+    },
+    "turns": [
+      {
+        "session_id": "s_demo_01",
+        "turn_id": 0,
+        "playback_status": "completed",
+        "cache_hit": false,
+        "tts_total_ms": 758.75,
+        "e_request_to_play_start_ms": 759.0,
+        "playback_wall_ms": 0.0,
+        "audio_duration_s": 4.8996,
+        "rtf": 0.1549,
+        "turn_stop_to_play_start_ms": null,
+        "listen_start_mono_ms": null
+      },
+      {
+        "session_id": "s_demo_01",
+        "turn_id": 1,
+        "playback_status": "completed",
+        "cache_hit": false,
+        "tts_total_ms": 1671.51,
+        "e_request_to_play_start_ms": 1643.0,
+        "playback_wall_ms": 0.0,
+        "audio_duration_s": 9.1663,
+        "rtf": 0.1824,
+        "turn_stop_to_play_start_ms": 1673.0,
+        "listen_start_mono_ms": 85045330
+      },
+      {
+        "session_id": "s_demo_01",
+        "turn_id": 2,
+        "playback_status": "completed",
+        "cache_hit": false,
+        "tts_total_ms": 727.16,
+        "e_request_to_play_start_ms": 728.0,
+        "playback_wall_ms": 0.0,
+        "audio_duration_s": 5.1575,
+        "rtf": 0.141,
+        "turn_stop_to_play_start_ms": null,
+        "listen_start_mono_ms": 85047003
+      },
+      {
+        "session_id": "s_demo_01",
+        "turn_id": 3,
+        "playback_status": "completed",
+        "cache_hit": false,
+        "tts_total_ms": 1087.46,
+        "e_request_to_play_start_ms": 1089.0,
+        "playback_wall_ms": 0.0,
+        "audio_duration_s": 7.3066,
+        "rtf": 0.1488,
+        "turn_stop_to_play_start_ms": null,
+        "listen_start_mono_ms": 85047731
+      },
+      {
+        "session_id": "s_demo_01",
+        "turn_id": 4,
+        "playback_status": "completed",
+        "cache_hit": true,
+        "tts_total_ms": 4.89,
+        "e_request_to_play_start_ms": 6.0,
+        "playback_wall_ms": 0.0,
+        "audio_duration_s": 4.9694,
+        "rtf": 0.001,
+        "turn_stop_to_play_start_ms": null,
+        "listen_start_mono_ms": 85048820
+      },
+      {
+        "session_id": "s_demo_01",
+        "turn_id": 5,
+        "playback_status": null,
+        "cache_hit": null,
+        "tts_total_ms": null,
+        "e_request_to_play_start_ms": null,
+        "playback_wall_ms": null,
+        "audio_duration_s": null,
+        "rtf": null,
+        "turn_stop_to_play_start_ms": null,
+        "listen_start_mono_ms": 85049556
+      }
+    ]
+  }
+}
