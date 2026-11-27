@@ -1,0 +1,73 @@
+课程 QA_base 复现输出
+Windows + Python 3.13.9 + Jieba 0.42.1 + Gensim 4.4.0
+数据为老师的样例语料，仅用于检索复现。退出码均为 0。
+输入顺序
+1. 窦性心律是什么？
+2. 什么叫窦性心律？
+3. 心脏病应该做什么检查证实？
+4. 哪里能买高铁票？
+每次回放末尾输入 q 退出。
+tmodel1.py SHA-256: c153624383926825c4b3b1b224935a6abe9f0d4c68b0423f668031489a4824ed
+data/qa_.csv SHA-256: a75cdbd68371f1f43f00fa085eebdc620c4ad06928056d7c2971996c614f8f9c
+
+===== 老师原版 tmodel1.py 的标准输出 =====
+请输入问题(q退出): 亲，我们给您找到的答案是： 这是心脏疾病引起的，建议做心电图和心脏彩超
+same questions： 左胸有累的感觉，呼吸困难,                score： (np.int64(16), np.float64(0.9585666060447693))
+same questions： 有时胸口痛，蹲下去再站起来就头晕眼花,                score： (np.int64(15), np.float64(0.2848685681819916))
+same questions： 窦性心律是什么？,                score： (np.int64(14), np.float64(0.05081147700548172))
+same questions： 心脏射频属先天性疾病吗？,                score： (np.int64(12), np.float64(0.0811500996351242))
+same questions： 经常会心慌，去做过检查，有医生说要做射频消融手术，有没有其他办法,                score： (np.int64(10), np.float64(0.0817544236779213))
+Time cost: 0.0024819374084472656 s
+请输入问题(q退出): 亲，我们给您找到的答案是： 这是心脏疾病引起的，建议做心电图和心脏彩超
+same questions： 左胸有累的感觉，呼吸困难,                score： (np.int64(16), np.float64(0.9585666060447693))
+same questions： 有时胸口痛，蹲下去再站起来就头晕眼花,                score： (np.int64(15), np.float64(0.2848685681819916))
+same questions： 窦性心律是什么？,                score： (np.int64(14), np.float64(0.05081147700548172))
+same questions： 心脏射频属先天性疾病吗？,                score： (np.int64(12), np.float64(0.0811500996351242))
+same questions： 经常会心慌，去做过检查，有医生说要做射频消融手术，有没有其他办法,                score： (np.int64(10), np.float64(0.0817544236779213))
+Time cost: 0.0005710124969482422 s
+请输入问题(q退出): 亲，我们给您找到的答案是： 目前检查心脏的方法是很多的。最基本的是心电图、X光片、超声等
+same questions： 心脏病应该做什么检查证实？,                score： (np.int64(15), np.float64(0.16954748332500458))
+same questions： 请问唇紫红是心脏有问题吗？,                score： (np.int64(14), np.float64(0.030241869390010834))
+same questions： 长期心衰、气揣、行走无力,                score： (np.int64(12), np.float64(0.04829875007271767))
+same questions： 左胸有累的感觉，呼吸困难,                score： (np.int64(10), np.float64(0.5907784104347229))
+same questions： 经常会心慌，去做过检查，有医生说要做射频消融手术，有没有其他办法,                score： (np.int64(9), np.float64(0.36767110228538513))
+Time cost: 0.00047206878662109375 s
+请输入问题(q退出): 亲，我们给您找到的答案是： 这些现象并不一定就是心脏病的表现，有必要去作一些相关的检查
+same questions： 晕倒一次，嘴唇有时发紫，呼吸较快是属于心脏病的症状吗？,                score： (np.int64(15), np.float64(1.0))
+same questions： 心脏病应该做什么检查证实？,                score： (np.int64(14), np.float64(0.17836813628673553))
+same questions： 经常会心慌，去做过检查，有医生说要做射频消融手术，有没有其他办法,                score： (np.int64(12), np.float64(0.2848685681819916))
+same questions： 有时胸口痛，蹲下去再站起来就头晕眼花,                score： (np.int64(10), np.float64(0.2869899868965149))
+same questions： 左胸有累的感觉，呼吸困难,                score： (np.int64(9), np.float64(0.4611389935016632))
+Time cost: 0.0004410743713378906 s
+请输入问题(q退出):
+
+===== 临时副本显式传入 num_features 后的标准输出 =====
+请输入问题(q退出): 亲，我们给您找到的答案是： 窦性心律就是正常心律
+same questions： 窦性心律是什么？,                score： 1.0
+same questions： 心律失常室早,                score： 0.9585666060447693
+same questions： 三尖瓣关闭不全是怎么回事？,                score： 0.2848685681819916
+same questions： 请问唇紫红是心脏有问题吗？,                score： 0.13136400282382965
+same questions： 刚做心脏的二尖瓣成形和室缺需要注意点什么？,                score： 0.0817544236779213
+Time cost: 0.0012831687927246094 s
+请输入问题(q退出): 亲，我们给您找到的答案是： 窦性心律就是正常心律
+same questions： 窦性心律是什么？,                score： 1.0
+same questions： 心律失常室早,                score： 0.9585666060447693
+same questions： 三尖瓣关闭不全是怎么回事？,                score： 0.2848685681819916
+same questions： 请问唇紫红是心脏有问题吗？,                score： 0.13136400282382965
+same questions： 刚做心脏的二尖瓣成形和室缺需要注意点什么？,                score： 0.0817544236779213
+Time cost: 0.0004513263702392578 s
+请输入问题(q退出): 亲，我们给您找到的答案是： 目前检查心脏的方法是很多的。最基本的是心电图、X光片、超声等
+same questions： 心脏病应该做什么检查证实？,                score： 0.9999999403953552
+same questions： 刚做心脏的二尖瓣成形和室缺需要注意点什么？,                score： 0.5907784104347229
+same questions： 经常会心慌，去做过检查，有医生说要做射频消融手术，有没有其他办法,                score： 0.461717426776886
+same questions： 晕倒一次，嘴唇有时发紫，呼吸较快是属于心脏病的症状吗？,                score： 0.4164227545261383
+same questions： 请问唇紫红是心脏有问题吗？,                score： 0.36767110228538513
+Time cost: 0.0004169940948486328 s
+请输入问题(q退出): 亲，我们给您找到的答案是： 考虑是阵发性心动过速，建议检查24小时动态心电图
+same questions： 三尖瓣关闭不全是怎么回事？,                score： 1.0
+same questions： 请问唇紫红是心脏有问题吗？,                score： 0.4611389935016632
+same questions： 刚做心脏的二尖瓣成形和室缺需要注意点什么？,                score： 0.2869899868965149
+same questions： 窦性心律是什么？,                score： 0.2848685681819916
+same questions： 倍他乐克可以长期使用吗？,                score： 0.2848685681819916
+Time cost: 0.0003857612609863281 s
+请输入问题(q退出):

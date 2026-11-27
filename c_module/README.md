@@ -49,4 +49,18 @@ Python 调用入口为 `from c_module.nlu import CModule`。启动时构造一�
 
 问答基线按课程的分词、TF-IDF、相似度排序流程实现，使用内置词表，初始拒答阈值为 0.30，前两条不同 FAQ 的最小分差为 0.06。相对日期按会话参考日解析。只说“周五”时，给出最近一次周五与再下一周的周五供澄清。
 
-如果要对照运行老师的原始问答示例，课程技术文档把代码放在百度网盘的 `speech` 文件夹。第一阶段的本地回放可直接运行。
+## TF-IDF 与 BM25 对照
+
+默认使用 TF-IDF。加入 `--retriever bm25` 即可用 BM25 回放，意图、槽位和事件格式沿用现有接口。联调时也可以构造 `CModule(retriever="bm25")`。
+
+```powershell
+python -B -m c_module --retriever bm25 --case faq
+python -B -m c_module.evaluate_faq
+python -B -m c_module.evaluate_faq --details
+```
+
+两种方法共享分词和问答库。评测用 18 条自编开发问句选阈值，用 32 条留出问句比较首选命中、实际作答和库外拒答。[实验口径和结果](faq_comparison.md)
+
+## 课程原版问答
+
+课程原版 `QA_base` 的运行命令、四条样例结果和 Gensim 参数核查见[课程问答基线复现](course_baseline/README.md)。
