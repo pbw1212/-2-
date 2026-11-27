@@ -33,6 +33,21 @@ TF-IDF 用问句词向量的余弦相似度评分。BM25 会压低重复词反�
 
 本轮证据来自自编文本小样本。真实 ASR 转写、真人问句和树莓派耗时需要后续单独评测。
 
+## 增加 Jieba 分词
+
+在同一批问句上加入分词对照。Jieba 使用 `cut_for_search`，开启 HMM 新词切分并加载现有业务词表。两种分词使用相同的文本归一化和停用词表，Jieba 输出的标点和空白会被过滤。问答库、检索公式、开发集选参规则和原有回放验收条件沿用上面的对照。 [Jieba 搜索模式说明](https://github.com/fxsjy/jieba/blob/master/README.md#算法)
+
+| 分词与检索器 | 最低分 / 最小分差 | 首选命中 | 实际作答 | 实际答对 | 误答 | 库外拒答或澄清 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 内置分词 + TF-IDF | 0.20 / 0.03 | 15/24 | 24/32 | 14/32 | 10/32 | 3/8 |
+| Jieba + TF-IDF | 0.20 / 0.03 | 17/24 | 25/32 | 16/32 | 9/32 | 4/8 |
+| 内置分词 + BM25 | 6.50 / 0.50 | 17/24 | 12/32 | 9/32 | 3/32 | 7/8 |
+| Jieba + BM25 | 3.00 / 0.75 | 18/24 | 21/32 | 15/32 | 6/32 | 6/8 |
+
+同样使用 TF-IDF 时，Jieba 让“提前多长时间到医院才合适？”从澄清变成正确回答提前到院。采用 BM25 时，Jieba 和重新校准后的阈值一共多答对 6 条，也多误答 3 条。例子是“身份证能在自助机上打印复印件吗？”，新组合将它错配到了预约凭证打印。首选命中统计在阈值筛选前进行，实际答对和误答同时受到排序与阈值影响。
+
+四种组合均通过 17 条原有文本回放。以上为在现有自编问句上的探索性分词对照，后续可以用独立收集的真实口语验证。
+
 ## 复跑
 
 在仓库根目录运行以下命令。前两条回放 C 的原有功能，后两条输出校准结果和留出集结果。
@@ -43,4 +58,12 @@ python -B -m c_module
 python -B -m c_module --retriever bm25
 python -B -m c_module.evaluate_faq
 python -B -m c_module.evaluate_faq --details
+```
+
+使用 Jieba 和一次性比较四种组合的命令如下。
+
+```powershell
+python -m pip install -r c_module/requirements.txt
+python -B -m c_module --segmenter jieba --retriever bm25
+python -B -m c_module.evaluate_faq --segmenter both --details
 ```

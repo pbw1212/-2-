@@ -4,7 +4,7 @@ import argparse
 import json
 from datetime import date
 
-from .faq import DEFAULT_THRESHOLDS
+from .faq import RETRIEVERS, SEGMENTERS
 from .nlu import CModule, load_data, make_event
 
 
@@ -59,13 +59,17 @@ def main():
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument("--case", help="只回放指定的内置样例")
     modes.add_argument("--text", help="手工输入一句 ASR 最终转写")
-    parser.add_argument("--retriever", choices=tuple(DEFAULT_THRESHOLDS), default="tfidf")
+    parser.add_argument("--retriever", choices=RETRIEVERS, default="tfidf")
+    parser.add_argument("--segmenter", choices=SEGMENTERS, default="builtin")
     parser.add_argument("--reference-date", type=date.fromisoformat, help="自定义文本的会话参考日 YYYY-MM-DD")
     parser.add_argument("--phase", choices=("idle", "collecting", "confirming"), default="idle")
     parser.add_argument("--expect", action="append", choices=("department", "doctor", "date", "period"), default=[])
     args = parser.parse_args()
 
-    module = CModule(retriever=args.retriever)
+    try:
+        module = CModule(retriever=args.retriever, segmenter=args.segmenter)
+    except ImportError as exc:
+        parser.error(str(exc))
     fixtures = load_data("replay.json")
     if args.text is not None:
         case = {"id": "custom", "text": args.text, "phase": args.phase, "expected_slots": args.expect}

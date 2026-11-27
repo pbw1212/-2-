@@ -6,17 +6,22 @@ import unicodedata
 from collections import Counter
 
 
-TOKEN = re.compile(
-    r"检查报告|身份证|医保卡|就诊卡|处方单|门诊楼|自助机|预约号|怎么走|"
-    r"复诊|证件|病历|报告|检查|资料|材料|携带|带上|忘带|丢了|"
-    r"预约|挂号|登记|报到|签到|取号|改期|改时间|取消|"
-    r"迟到|提前|到院|分钟|地点|窗口|楼层|哪里|哪儿|"
-    r"家属|陪同|代办|代约|缴费|费用|支付|结算|"
-    r"手机|电话|通知|打印|补打|凭证|空腹|吃饭|"
-    r"[a-z0-9]+|[\u3400-\u9fff]"
-)
+DOMAIN_TERMS = (
+    "检查报告 身份证 医保卡 就诊卡 处方单 门诊楼 自助机 预约号 怎么走 "
+    "复诊 证件 病历 报告 检查 资料 材料 携带 带上 忘带 丢了 "
+    "预约 挂号 登记 报到 签到 取号 改期 改时间 取消 "
+    "迟到 提前 到院 分钟 地点 窗口 楼层 哪里 哪儿 "
+    "家属 陪同 代办 代约 缴费 费用 支付 结算 "
+    "手机 电话 通知 打印 补打 凭证 空腹 吃饭"
+).split()
+TOKEN = re.compile("|".join(map(re.escape, DOMAIN_TERMS)) + r"|[a-z0-9]+|[\u3400-\u9fff]")
 STOP_WORDS = frozenset("我 你 您 的 了 吗 呢 吧 要 该 想 请 能 可以".split())
-DEFAULT_THRESHOLDS = {"tfidf": (0.30, 0.06), "bm25": (6.5, 0.50)}
+DEFAULT_THRESHOLDS = {
+    "builtin": {"tfidf": (0.30, 0.06), "bm25": (6.5, 0.50)},
+    "jieba": {"tfidf": (0.20, 0.03), "bm25": (3.0, 0.75)},
+}
+SEGMENTERS = tuple(DEFAULT_THRESHOLDS)
+RETRIEVERS = tuple(DEFAULT_THRESHOLDS["builtin"])
 BM25_K1 = 1.2
 BM25_B = 0.75
 
@@ -24,6 +29,27 @@ BM25_B = 0.75
 def token_counts(text):
     text = unicodedata.normalize("NFKC", text).lower()
     return Counter(word for word in TOKEN.findall(text) if word not in STOP_WORDS)
+
+
+def make_token_counter(segmenter):
+    if segmenter == "builtin":
+        return token_counts
+
+    try:
+        import jieba
+    except ImportError as exc:
+        raise ImportError("使用 Jieba 分词前请运行 python -m pip install -r c_module/requirements.txt") from exc
+
+    tokenizer = jieba.Tokenizer()
+    for term in DOMAIN_TERMS:
+        tokenizer.add_word(term)
+
+    def jieba_counts(text):
+        text = unicodedata.normalize("NFKC", text).lower()
+        words = tokenizer.cut_for_search(text, HMM=True)
+        return Counter(word for word in words if word.isalnum() and word not in STOP_WORDS)
+
+    return jieba_counts
 
 
 def retrieval_status(ranked, min_score, min_margin):
@@ -35,16 +61,22 @@ def retrieval_status(ranked, min_score, min_margin):
 
 
 class FaqIndex:
-    def __init__(self, entries, min_score=None, min_margin=None, *, retriever="tfidf"):
-        if retriever not in DEFAULT_THRESHOLDS:
+    def __init__(
+        self, entries, min_score=None, min_margin=None, *, retriever="tfidf", segmenter="builtin",
+    ):
+        if retriever not in RETRIEVERS:
             raise ValueError(f"未知检索器 {retriever}")
+        if segmenter not in SEGMENTERS:
+            raise ValueError(f"未知分词方式 {segmenter}")
         self.retriever = retriever
-        default_score, default_margin = DEFAULT_THRESHOLDS[retriever]
+        self.segmenter = segmenter
+        self._token_counts = make_token_counter(segmenter)
+        default_score, default_margin = DEFAULT_THRESHOLDS[segmenter][retriever]
         self.entries = {entry["faq_id"]: entry for entry in entries}
         self.min_score = default_score if min_score is None else min_score
         self.min_margin = default_margin if min_margin is None else min_margin
         documents = [
-            (entry["faq_id"], token_counts(question))
+            (entry["faq_id"], self._token_counts(question))
             for entry in self.entries.values()
             for question in [entry["question"], *entry["variants"]]
         ]
@@ -88,7 +120,7 @@ class FaqIndex:
         }
 
     def rank(self, question):
-        counts = token_counts(question)
+        counts = self._token_counts(question)
         # BM25 adds one contribution per distinct query term.
         query = self._unit_vector(counts) if self.retriever == "tfidf" else dict.fromkeys(counts, 1)
         scores = {}

@@ -1,10 +1,10 @@
-"""固定问答库和分词，使用开发集校准阈值，再评测留出问句。"""
+"""使用固定问答库比较分词和检索策略，在开发集校准阈值。"""
 
 import argparse
 import json
 from itertools import product
 
-from .faq import FaqIndex, retrieval_status
+from .faq import SEGMENTERS, FaqIndex, retrieval_status
 from .nlu import load_data, normalize
 
 
@@ -97,20 +97,11 @@ def calibrate(cases, regression, retriever):
     return max(eligible, key=calibration_quality)
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--details", action="store_true", help="同时输出每条留出问句的首选和状态")
-    args = parser.parse_args()
-    entries = load_data("faq.json")
-    splits = load_data("faq_eval.json")
-    replay_cases = [
-        case for case in load_data("replay.json")["cases"] if case["expected"]["intent"] == "faq"
-    ]
-    validate_cases(entries, splits, replay_cases)
+def evaluate(entries, splits, replay_cases, segmenter, *, with_details=False):
     results = {}
 
     for retriever in THRESHOLD_GRID:
-        index = FaqIndex(entries, retriever=retriever)
+        index = FaqIndex(entries, retriever=retriever, segmenter=segmenter)
         development = [(case, index.rank(case["text"])) for case in splits["development"]]
         test = [(case, index.rank(case["text"])) for case in splits["test"]]
         regression = [(case["expected"], index.rank(case["text"])) for case in replay_cases]
@@ -129,11 +120,35 @@ def main():
                 **default_summary,
             },
         }
-        if args.details:
+        if with_details:
             result["test_details"] = details
         results[retriever] = result
 
-    print(json.dumps(results, ensure_ascii=False, indent=2))
+    return results
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--segmenter", choices=(*SEGMENTERS, "both"), default="builtin")
+    parser.add_argument("--details", action="store_true", help="同时输出每条留出问句的首选和状态")
+    args = parser.parse_args()
+    entries = load_data("faq.json")
+    splits = load_data("faq_eval.json")
+    replay_cases = [
+        case for case in load_data("replay.json")["cases"] if case["expected"]["intent"] == "faq"
+    ]
+    validate_cases(entries, splits, replay_cases)
+    segmenters = SEGMENTERS if args.segmenter == "both" else (args.segmenter,)
+    try:
+        results = {
+            segmenter: evaluate(entries, splits, replay_cases, segmenter, with_details=args.details)
+            for segmenter in segmenters
+        }
+    except ImportError as exc:
+        parser.error(str(exc))
+
+    output = results if args.segmenter == "both" else results[args.segmenter]
+    print(json.dumps(output, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

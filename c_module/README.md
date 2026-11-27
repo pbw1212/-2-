@@ -61,6 +61,18 @@ python -B -m c_module.evaluate_faq --details
 
 两种方法共享分词和问答库。评测用 18 条自编开发问句选阈值，用 32 条留出问句比较首选命中、实际作答和库外拒答。[实验口径和结果](faq_comparison.md)
 
+## Jieba 分词对照
+
+加上 `--segmenter jieba` 可使用 Jieba 搜索模式，加载与内置分词相同的业务词表。TF-IDF 和 BM25 均可选，两种算法分别使用针对 Jieba 校准的阈值。默认入口沿用内置分词。
+
+```powershell
+python -m pip install -r c_module/requirements.txt
+python -B -m c_module --segmenter jieba --retriever tfidf --case faq
+python -B -m c_module.evaluate_faq --segmenter both --details
+```
+
+代码联调时可用 `CModule(segmenter="jieba", retriever="tfidf")`。使用内置分词的运行入口只依赖 Python 标准库。
+
 ## 课程原版问答
 
 课程原版 `QA_base` 的运行命令、四条样例结果和 Gensim 参数核查见[课程问答基线复现](course_baseline/README.md)。

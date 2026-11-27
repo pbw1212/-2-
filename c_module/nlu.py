@@ -89,8 +89,8 @@ def date_candidates(match, reference_date):
 
 
 class CModule:
-    def __init__(self, *, retriever="tfidf"):
-        self.faq = FaqIndex(load_data("faq.json"), retriever=retriever)
+    def __init__(self, *, retriever="tfidf", segmenter="builtin"):
+        self.faq = FaqIndex(load_data("faq.json"), retriever=retriever, segmenter=segmenter)
         self.aliases = load_data("slots.json")
         self.slot_patterns = {
             field: re.compile("|".join(map(re.escape, sorted(aliases, key=len, reverse=True))))
@@ -158,7 +158,9 @@ class CModule:
             faq_result, candidates = self.faq.search(original)
             if diagnostics is not None:
                 name = "tfidf_cosine" if self.faq.retriever == "tfidf" else self.faq.retriever
-                diagnostics.update({"retriever": name, "candidates": candidates})
+                diagnostics.update({
+                    "retriever": name, "segmenter": self.faq.segmenter, "candidates": candidates,
+                })
             result.update(intent="faq", **faq_result)
             return result
 
