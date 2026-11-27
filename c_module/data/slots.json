@@ -1,0 +1,21 @@
+{
+  "department": {
+    "康复科": "rehab",
+    "康复医学科": "rehab",
+    "心内科": "cardiology",
+    "心血管内科": "cardiology",
+    "骨科": "orthopedics"
+  },
+  "doctor": {
+    "张医生": "doctor_zhang",
+    "张大夫": "doctor_zhang",
+    "李医生": "doctor_li",
+    "李大夫": "doctor_li"
+  },
+  "period": {
+    "早上": "morning",
+    "上午": "morning",
+    "下午": "afternoon",
+    "午后": "afternoon"
+  }
+}

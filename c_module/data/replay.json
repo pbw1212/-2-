@@ -1,0 +1,138 @@
+{
+  "session_id": "c-phase1-demo",
+  "reference_date": "2026-11-24",
+  "cases": [
+    {
+      "id": "faq",
+      "text": "复诊要带什么？",
+      "expected": {"intent": "faq", "status": "ok", "slots": {}, "faq_id": "bring_documents"}
+    },
+    {
+      "id": "book",
+      "text": "我想约康复科，下周四下午。",
+      "expected": {
+        "intent": "book",
+        "status": "ok",
+        "slots": {
+          "department": {"value": "rehab", "raw": "康复科", "status": "ok"},
+          "date": {"value": "2026-12-03", "raw": "下周四", "status": "ok"},
+          "period": {"value": "afternoon", "raw": "下午", "status": "ok"}
+        }
+      }
+    },
+    {
+      "id": "correct",
+      "text": "改成下周五吧。",
+      "phase": "collecting",
+      "expected": {
+        "intent": "correct",
+        "status": "ok",
+        "slots": {"date": {"value": "2026-12-04", "raw": "下周五", "status": "ok"}}
+      }
+    },
+    {
+      "id": "ambiguous_date",
+      "text": "改成周五吧。",
+      "phase": "collecting",
+      "expected": {
+        "intent": "correct",
+        "status": "ambiguous",
+        "slots": {
+          "date": {
+            "value": null,
+            "raw": "周五",
+            "status": "ambiguous",
+            "candidates": ["2026-11-27", "2026-12-04"]
+          }
+        }
+      }
+    },
+    {
+      "id": "targeted",
+      "text": "下午。",
+      "phase": "collecting",
+      "expected_slots": ["period"],
+      "expected": {
+        "intent": "provide_slot",
+        "status": "ok",
+        "slots": {"period": {"value": "afternoon", "raw": "下午", "status": "ok"}}
+      }
+    },
+    {
+      "id": "without_context",
+      "text": "下午。",
+      "with_context": false,
+      "expected": {"intent": "unknown", "status": "ambiguous", "slots": {}}
+    },
+    {
+      "id": "cancel",
+      "text": "取消这次登记。",
+      "phase": "collecting",
+      "expected": {"intent": "cancel", "status": "ok", "slots": {}}
+    },
+    {
+      "id": "cancel_faq",
+      "text": "怎么取消这次复诊登记？",
+      "phase": "collecting",
+      "expected": {"intent": "faq", "status": "ok", "slots": {}, "faq_id": "cancel_registration"}
+    },
+    {
+      "id": "confirm",
+      "text": "对。",
+      "phase": "confirming",
+      "expected": {"intent": "confirm", "status": "ok", "slots": {}}
+    },
+    {
+      "id": "deny",
+      "text": "不是。",
+      "phase": "confirming",
+      "expected": {"intent": "deny", "status": "ok", "slots": {}}
+    },
+    {
+      "id": "history",
+      "text": "还是上次那位，下周四下午。",
+      "phase": "collecting",
+      "expected": {
+        "intent": "provide_slot",
+        "status": "ok",
+        "history_ref": "last_doctor",
+        "slots": {
+          "date": {"value": "2026-12-03", "raw": "下周四", "status": "ok"},
+          "period": {"value": "afternoon", "raw": "下午", "status": "ok"}
+        }
+      }
+    },
+    {
+      "id": "out_of_scope",
+      "text": "哪里能买高铁票？",
+      "expected": {"intent": "faq", "status": "no_match", "slots": {}}
+    },
+    {
+      "id": "faq_new_wording",
+      "text": "去复诊需要带哪些资料？",
+      "expected": {"intent": "faq", "status": "ok", "slots": {}, "faq_id": "bring_documents"}
+    },
+    {
+      "id": "faq_margin",
+      "text": "家属可以陪同或者代办吗？",
+      "expected": {"intent": "faq", "status": "ambiguous", "slots": {}}
+    },
+    {
+      "id": "empty_text",
+      "text": " ？！ ",
+      "expected": {"intent": "unknown", "status": "no_input", "slots": {}}
+    },
+    {
+      "id": "silence",
+      "text": null,
+      "asr_status": "no_input",
+      "expected": {"intent": "unknown", "status": "no_input", "slots": {}}
+    },
+    {
+      "id": "asr_error",
+      "text": null,
+      "asr_status": "error",
+      "expected": {"intent": "unknown", "status": "error", "slots": {}}
+    }
+  ]
+}
