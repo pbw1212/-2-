@@ -318,12 +318,13 @@ b_module/
 ├── data/annotations.json 真值（提交入库）
 ├── data/text_timeline.json 11 条样本的模拟临时转写
 ├── results/annotation/  每条样本的能量曲线 PNG
-├── results/metrics.md / metrics.json / scan_details.csv / figure_tradeoff.png
+├── results/metrics.md / metrics.json / scan_details.csv / figure_tradeoff.png / coda_profile.png
 ├── results/traces/      演示用的组协议 trace（E 的 latency_analyzer 可直接读）
+├── tools/               汇报配图生成（make_figures：尾音剖面图）
 ├── results/listen/      人工听审台 index.html + 听审表.md
 ├── demo/                两段现场演示脚本 + 说明
 ├── interfaces/          给 A 的接入说明（跨模块差异与联调清单）
-├── report/              阶段一汇报提纲（PPT 5 页 + 口述稿 + 课程对应表）
+├── report/              阶段一汇报提纲（P1 工程量+原理+工具 / P2 数据来源 / P3 结果+分析 / P4 已修错误 / P5 计划）
 └── tests/               102 项测试（协议 / VAD / 重建 / 标注 / 上下文 / 时间线 / 策略 / 状态机 / 回放 / 指标 / A 转接）
 ```
 
