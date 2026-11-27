@@ -1,0 +1,739 @@
+{
+  "strategies": {
+    "fixed:300": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 6,
+        "early_rate": 0.2069,
+        "early_denominator": 29,
+        "latency_median_ms": 180.0,
+        "latency_p90_ms": 280.0,
+        "latency_n": 23,
+        "reasons": {
+          "fixed_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 6,
+          "early_rate": 1.0,
+          "early_denominator": 6,
+          "latency_median_ms": null,
+          "latency_p90_ms": null,
+          "latency_n": 0,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 180.0,
+          "latency_p90_ms": 280.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 170.0,
+          "latency_p90_ms": 260.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 280.0,
+          "latency_p90_ms": 280.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 280.0,
+          "latency_p90_ms": 280.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 6,
+          "early_rate": 0.3529,
+          "early_denominator": 17,
+          "latency_median_ms": 180.0,
+          "latency_p90_ms": 260.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 180.0,
+          "latency_p90_ms": 280.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    },
+    "fixed:600": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 6,
+        "early_rate": 0.2069,
+        "early_denominator": 29,
+        "latency_median_ms": 480.0,
+        "latency_p90_ms": 580.0,
+        "latency_n": 23,
+        "reasons": {
+          "fixed_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 6,
+          "early_rate": 1.0,
+          "early_denominator": 6,
+          "latency_median_ms": null,
+          "latency_p90_ms": null,
+          "latency_n": 0,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 480.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 470.0,
+          "latency_p90_ms": 560.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 580.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 580.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 6,
+          "early_rate": 0.3529,
+          "early_denominator": 17,
+          "latency_median_ms": 480.0,
+          "latency_p90_ms": 560.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 480.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    },
+    "fixed:900": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 5,
+        "early_rate": 0.1724,
+        "early_denominator": 29,
+        "latency_median_ms": 780.0,
+        "latency_p90_ms": 880.0,
+        "latency_n": 24,
+        "reasons": {
+          "fixed_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 5,
+          "early_rate": 0.8333,
+          "early_denominator": 6,
+          "latency_median_ms": 780.0,
+          "latency_p90_ms": 780.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 780.0,
+          "latency_p90_ms": 880.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 770.0,
+          "latency_p90_ms": 860.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 880.0,
+          "latency_p90_ms": 880.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 880.0,
+          "latency_p90_ms": 880.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 5,
+          "early_rate": 0.2941,
+          "early_denominator": 17,
+          "latency_median_ms": 780.0,
+          "latency_p90_ms": 860.0,
+          "latency_n": 12,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 780.0,
+          "latency_p90_ms": 880.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    },
+    "fixed:1200": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 1,
+        "early_rate": 0.0345,
+        "early_denominator": 29,
+        "latency_median_ms": 1080.0,
+        "latency_p90_ms": 1180.0,
+        "latency_n": 28,
+        "reasons": {
+          "fixed_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 1,
+          "early_rate": 0.1667,
+          "early_denominator": 6,
+          "latency_median_ms": 1040.0,
+          "latency_p90_ms": 1140.0,
+          "latency_n": 5,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 1080.0,
+          "latency_p90_ms": 1180.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 1070.0,
+          "latency_p90_ms": 1160.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 1180.0,
+          "latency_p90_ms": 1180.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 1180.0,
+          "latency_p90_ms": 1180.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 1,
+          "early_rate": 0.0588,
+          "early_denominator": 17,
+          "latency_median_ms": 1070.0,
+          "latency_p90_ms": 1170.0,
+          "latency_n": 16,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 1080.0,
+          "latency_p90_ms": 1180.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    },
+    "fixed:1500": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 0,
+        "early_rate": 0.0,
+        "early_denominator": 29,
+        "latency_median_ms": 1380.0,
+        "latency_p90_ms": 1480.0,
+        "latency_n": 29,
+        "reasons": {
+          "fixed_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 6,
+          "latency_median_ms": 1330.0,
+          "latency_p90_ms": 1430.0,
+          "latency_n": 6,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 1380.0,
+          "latency_p90_ms": 1480.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 1370.0,
+          "latency_p90_ms": 1460.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 1480.0,
+          "latency_p90_ms": 1480.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 1480.0,
+          "latency_p90_ms": 1480.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 17,
+          "latency_median_ms": 1360.0,
+          "latency_p90_ms": 1468.0,
+          "latency_n": 17,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 1380.0,
+          "latency_p90_ms": 1480.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    },
+    "adaptive_question": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 0,
+        "early_rate": 0.0,
+        "early_denominator": 29,
+        "latency_median_ms": 1300.0,
+        "latency_p90_ms": 1460.0,
+        "latency_n": 29,
+        "reasons": {
+          "adaptive_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 6,
+          "latency_median_ms": 1330.0,
+          "latency_p90_ms": 1430.0,
+          "latency_n": 6,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 480.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 1370.0,
+          "latency_p90_ms": 1460.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 1480.0,
+          "latency_p90_ms": 1480.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 580.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 17,
+          "latency_median_ms": 1360.0,
+          "latency_p90_ms": 1468.0,
+          "latency_n": 17,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 480.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    },
+    "adaptive_text": {
+      "overall": {
+        "turns": 29,
+        "triggered": 29,
+        "untriggered": 0,
+        "early": 0,
+        "early_rate": 0.0,
+        "early_denominator": 29,
+        "latency_median_ms": 1320.0,
+        "latency_p90_ms": 1464.0,
+        "latency_n": 29,
+        "reasons": {
+          "adaptive_silence": 29
+        }
+      },
+      "by_group": {
+        "open_pause": {
+          "turns": 6,
+          "triggered": 6,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 6,
+          "latency_median_ms": 1330.0,
+          "latency_p90_ms": 1430.0,
+          "latency_n": 6,
+          "reasons": {}
+        },
+        "targeted": {
+          "turns": 11,
+          "triggered": 11,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 11,
+          "latency_median_ms": 480.0,
+          "latency_p90_ms": 580.0,
+          "latency_n": 11,
+          "reasons": {}
+        },
+        "open_long": {
+          "turns": 10,
+          "triggered": 10,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 10,
+          "latency_median_ms": 1370.0,
+          "latency_p90_ms": 1460.0,
+          "latency_n": 10,
+          "reasons": {}
+        },
+        "open_full": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 1480.0,
+          "latency_p90_ms": 1480.0,
+          "latency_n": 1,
+          "reasons": {}
+        },
+        "yes_no_proxy": {
+          "turns": 1,
+          "triggered": 1,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 1,
+          "latency_median_ms": 440.0,
+          "latency_p90_ms": 440.0,
+          "latency_n": 1,
+          "reasons": {}
+        }
+      },
+      "pooled": {
+        "open": {
+          "turns": 17,
+          "triggered": 17,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 17,
+          "latency_median_ms": 1360.0,
+          "latency_p90_ms": 1468.0,
+          "latency_n": 17,
+          "reasons": {}
+        },
+        "short": {
+          "turns": 12,
+          "triggered": 12,
+          "untriggered": 0,
+          "early": 0,
+          "early_rate": 0.0,
+          "early_denominator": 12,
+          "latency_median_ms": 470.0,
+          "latency_p90_ms": 578.0,
+          "latency_n": 12,
+          "reasons": {}
+        }
+      }
+    }
+  },
+  "group_order": [
+    "open_pause",
+    "targeted",
+    "open_long",
+    "open_full",
+    "yes_no_proxy"
+  ]
+}

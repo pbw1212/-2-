@@ -1,0 +1,870 @@
+{
+  "schema_version": 1,
+  "generated_by": "b_module.annotate.build_annotations",
+  "annotation_method": {
+    "kind": "auto_energy_vad",
+    "note": "自动标注 + 人工抽检；真值比检测口径更保守（阈值更低、要求连续帧）",
+    "threshold_dbfs": -60.0,
+    "min_speech_frames": 3,
+    "min_region_gap_ms": 300.0,
+    "frame_ms": 20.0,
+    "tolerance_ms": 20.0
+  },
+  "case_count": 29,
+  "verified_count": 0,
+  "cases": [
+    {
+      "case_id": "dev_01",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 5600.0,
+      "speech_end_ms": 3600.0,
+      "turn_end_ms": 3600.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 2,
+      "mid_pause_design_ms": 1000.0,
+      "mid_pause_ms": 1000.0,
+      "detect_gap_ms": 1020.0,
+      "detect_region_count": 2,
+      "has_mid_pause": true,
+      "part_offsets_ms": [
+        0.0,
+        2420.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_01-01.wav",
+        "examples/clinic/audio/dev_01-02.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_01.png"
+    },
+    {
+      "case_id": "dev_02",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "department",
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4020.0,
+      "speech_end_ms": 2020.0,
+      "turn_end_ms": 2020.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_02-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_02.png"
+    },
+    {
+      "case_id": "dev_03",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "date",
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3820.0,
+      "speech_end_ms": 1820.0,
+      "turn_end_ms": 1820.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_03-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_03.png"
+    },
+    {
+      "case_id": "dev_04",
+      "group": "open_full",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4480.0,
+      "speech_end_ms": 2480.0,
+      "turn_end_ms": 2480.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_04-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_04.png"
+    },
+    {
+      "case_id": "dev_05",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "department",
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 5100.0,
+      "speech_end_ms": 3100.0,
+      "turn_end_ms": 3100.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_05-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_05.png"
+    },
+    {
+      "case_id": "dev_06",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "date",
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3360.0,
+      "speech_end_ms": 1360.0,
+      "turn_end_ms": 1360.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_06-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_06.png"
+    },
+    {
+      "case_id": "dev_07",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4260.0,
+      "speech_end_ms": 2260.0,
+      "turn_end_ms": 2260.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_07-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_07.png"
+    },
+    {
+      "case_id": "dev_08",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "dev",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4060.0,
+      "speech_end_ms": 2060.0,
+      "turn_end_ms": 2060.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/dev_08-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/dev_08.png"
+    },
+    {
+      "case_id": "test_01",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 5880.0,
+      "speech_end_ms": 3880.0,
+      "turn_end_ms": 3880.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 2,
+      "mid_pause_design_ms": 800.0,
+      "mid_pause_ms": 800.0,
+      "detect_gap_ms": 980.0,
+      "detect_region_count": 2,
+      "has_mid_pause": true,
+      "part_offsets_ms": [
+        0.0,
+        2620.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_01-01.wav",
+        "examples/clinic/audio/test_01-02.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_01.png"
+    },
+    {
+      "case_id": "test_02",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 5769.98,
+      "speech_end_ms": 3760.0,
+      "turn_end_ms": 3760.0,
+      "tail_silence_ms": 2009.98,
+      "region_count": 2,
+      "mid_pause_design_ms": 650.0,
+      "mid_pause_ms": 640.0,
+      "detect_gap_ms": 820.0,
+      "detect_region_count": 2,
+      "has_mid_pause": true,
+      "part_offsets_ms": [
+        0.0,
+        1989.98
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_02-01.wav",
+        "examples/clinic/audio/test_02-02.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_02.png"
+    },
+    {
+      "case_id": "test_03",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "department",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4660.0,
+      "speech_end_ms": 2660.0,
+      "turn_end_ms": 2660.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_03-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_03.png"
+    },
+    {
+      "case_id": "test_04",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "department",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4140.0,
+      "speech_end_ms": 2140.0,
+      "turn_end_ms": 2140.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_04-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_04.png"
+    },
+    {
+      "case_id": "test_05",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "date",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4400.0,
+      "speech_end_ms": 2400.0,
+      "turn_end_ms": 2400.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_05-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_05.png"
+    },
+    {
+      "case_id": "test_06",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "date",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3580.0,
+      "speech_end_ms": 1580.0,
+      "turn_end_ms": 1580.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_06-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_06.png"
+    },
+    {
+      "case_id": "test_07",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 5869.98,
+      "speech_end_ms": 3860.0,
+      "turn_end_ms": 3860.0,
+      "tail_silence_ms": 2009.98,
+      "region_count": 2,
+      "mid_pause_design_ms": 850.0,
+      "mid_pause_ms": 840.0,
+      "detect_gap_ms": 1000.0,
+      "detect_region_count": 2,
+      "has_mid_pause": true,
+      "part_offsets_ms": [
+        0.0,
+        2589.98
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_07-01.wav",
+        "examples/clinic/audio/test_07-02.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_07.png"
+    },
+    {
+      "case_id": "test_08",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "department",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4320.0,
+      "speech_end_ms": 2320.0,
+      "turn_end_ms": 2320.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_08-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_08.png"
+    },
+    {
+      "case_id": "test_09",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 5960.0,
+      "speech_end_ms": 3960.0,
+      "turn_end_ms": 3960.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 2,
+      "mid_pause_design_ms": 700.0,
+      "mid_pause_ms": 700.0,
+      "detect_gap_ms": 900.0,
+      "detect_region_count": 2,
+      "has_mid_pause": true,
+      "part_offsets_ms": [
+        0.0,
+        2160.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_09-01.wav",
+        "examples/clinic/audio/test_09-02.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_09.png"
+    },
+    {
+      "case_id": "test_10",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "date",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4260.0,
+      "speech_end_ms": 2260.0,
+      "turn_end_ms": 2260.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_10-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_10.png"
+    },
+    {
+      "case_id": "test_11",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slot": "department",
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3920.0,
+      "speech_end_ms": 1920.0,
+      "turn_end_ms": 1920.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_11-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_11.png"
+    },
+    {
+      "case_id": "test_12",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 6780.0,
+      "speech_end_ms": 4780.0,
+      "turn_end_ms": 4780.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 2,
+      "mid_pause_design_ms": 1000.0,
+      "mid_pause_ms": 1000.0,
+      "detect_gap_ms": 1220.0,
+      "detect_region_count": 2,
+      "has_mid_pause": true,
+      "part_offsets_ms": [
+        0.0,
+        3340.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_12-01.wav",
+        "examples/clinic/audio/test_12-02.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_12.png"
+    },
+    {
+      "case_id": "test_13",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4540.0,
+      "speech_end_ms": 2540.0,
+      "turn_end_ms": 2540.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_13-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_13.png"
+    },
+    {
+      "case_id": "test_14",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3820.0,
+      "speech_end_ms": 1820.0,
+      "turn_end_ms": 1820.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_14-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_14.png"
+    },
+    {
+      "case_id": "test_15",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3740.0,
+      "speech_end_ms": 1740.0,
+      "turn_end_ms": 1740.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_15-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_15.png"
+    },
+    {
+      "case_id": "test_16",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4420.0,
+      "speech_end_ms": 2420.0,
+      "turn_end_ms": 2420.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_16-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_16.png"
+    },
+    {
+      "case_id": "test_17",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4320.0,
+      "speech_end_ms": 2320.0,
+      "turn_end_ms": 2320.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_17-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_17.png"
+    },
+    {
+      "case_id": "test_18",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4460.0,
+      "speech_end_ms": 2460.0,
+      "turn_end_ms": 2460.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_18-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_18.png"
+    },
+    {
+      "case_id": "test_19",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 4040.0,
+      "speech_end_ms": 2040.0,
+      "turn_end_ms": 2040.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_19-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_19.png"
+    },
+    {
+      "case_id": "test_20",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slot": null,
+      "split": "test",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 3740.0,
+      "speech_end_ms": 1740.0,
+      "turn_end_ms": 1740.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/clinic/audio/test_20-01.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/test_20.png"
+    },
+    {
+      "case_id": "smoke_short",
+      "group": "yes_no_proxy",
+      "question_type": "yes_no",
+      "expected_slot": null,
+      "split": "proxy",
+      "sample_rate": 22050,
+      "frame_ms": 20.0,
+      "duration_ms": 2180.0,
+      "speech_end_ms": 180.0,
+      "turn_end_ms": 180.0,
+      "tail_silence_ms": 2000.0,
+      "region_count": 1,
+      "mid_pause_design_ms": 0.0,
+      "mid_pause_ms": 0.0,
+      "detect_gap_ms": 0.0,
+      "detect_region_count": 1,
+      "has_mid_pause": false,
+      "part_offsets_ms": [
+        0.0
+      ],
+      "source_parts": [
+        "examples/smoke/short.wav"
+      ],
+      "verified": false,
+      "verified_by": null,
+      "override_end_ms": null,
+      "plot": "b_module/results/annotation/smoke_short.png"
+    }
+  ]
+}

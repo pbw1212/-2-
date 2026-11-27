@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "generated_by": "b_module.dataset.build_manifest",
+  "a_module_root": "a_module",
+  "reconstruction": {
+    "trim_dbfs": -45.0,
+    "trim_margin_ms": 0.0,
+    "tail_pad_ms": 2000.0,
+    "frame_ms": 20.0
+  },
+  "group_counts": {
+    "open_full": 1,
+    "open_long": 10,
+    "open_pause": 6,
+    "targeted": 11,
+    "yes_no_proxy": 1
+  },
+  "case_count": 29,
+  "cases": [
+    {
+      "case_id": "dev_01",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/dev_01-01.wav",
+        "examples/clinic/audio/dev_01-02.wav"
+      ],
+      "pause_ms": 1000.0,
+      "context": "registration",
+      "targets": [
+        "康复科",
+        "下周四",
+        "下午"
+      ],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "dev_02",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "department"
+      ],
+      "parts": [
+        "examples/clinic/audio/dev_02-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "department",
+      "targets": [
+        "耳鼻喉科"
+      ],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": -1,
+      "expected_slot": "department"
+    },
+    {
+      "case_id": "dev_03",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "date"
+      ],
+      "parts": [
+        "examples/clinic/audio/dev_03-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "date",
+      "targets": [
+        "本周五",
+        "上午"
+      ],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": 1,
+      "expected_slot": "date"
+    },
+    {
+      "case_id": "dev_04",
+      "group": "open_full",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/dev_04-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [
+        "心内科",
+        "下周一",
+        "上午"
+      ],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "dev_05",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "department"
+      ],
+      "parts": [
+        "examples/clinic/audio/dev_05-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "department",
+      "targets": [
+        "口腔科"
+      ],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": -1,
+      "expected_slot": "department"
+    },
+    {
+      "case_id": "dev_06",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "date"
+      ],
+      "parts": [
+        "examples/clinic/audio/dev_06-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "date",
+      "targets": [
+        "下周三",
+        "下午"
+      ],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": 1,
+      "expected_slot": "date"
+    },
+    {
+      "case_id": "dev_07",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/dev_07-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "dev_08",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/dev_08-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "dev",
+      "voice": "Microsoft Huihui Desktop",
+      "rate": 1,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_01",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_01-01.wav",
+        "examples/clinic/audio/test_01-02.wav"
+      ],
+      "pause_ms": 800.0,
+      "context": "registration",
+      "targets": [
+        "神经内科",
+        "下周二",
+        "上午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_02",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_02-01.wav",
+        "examples/clinic/audio/test_02-02.wav"
+      ],
+      "pause_ms": 650.0,
+      "context": "registration",
+      "targets": [
+        "皮肤科",
+        "本周六",
+        "下午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_03",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "department"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_03-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "department",
+      "targets": [
+        "呼吸内科"
+      ],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": -1,
+      "expected_slot": "department"
+    },
+    {
+      "case_id": "test_04",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "department"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_04-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "department",
+      "targets": [
+        "消化内科"
+      ],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 1,
+      "expected_slot": "department"
+    },
+    {
+      "case_id": "test_05",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "date"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_05-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "date",
+      "targets": [
+        "下周五",
+        "下午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 0,
+      "expected_slot": "date"
+    },
+    {
+      "case_id": "test_06",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "date"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_06-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "date",
+      "targets": [
+        "下周日",
+        "上午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 1,
+      "expected_slot": "date"
+    },
+    {
+      "case_id": "test_07",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_07-01.wav",
+        "examples/clinic/audio/test_07-02.wav"
+      ],
+      "pause_ms": 850.0,
+      "context": "registration",
+      "targets": [
+        "骨科",
+        "本周三",
+        "下午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_08",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "department"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_08-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "department",
+      "targets": [
+        "眼科"
+      ],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": -1,
+      "expected_slot": "department"
+    },
+    {
+      "case_id": "test_09",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_09-01.wav",
+        "examples/clinic/audio/test_09-02.wav"
+      ],
+      "pause_ms": 700.0,
+      "context": "registration",
+      "targets": [
+        "耳鼻喉科",
+        "下周四",
+        "上午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_10",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "date"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_10-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "date",
+      "targets": [
+        "本周二",
+        "上午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 0,
+      "expected_slot": "date"
+    },
+    {
+      "case_id": "test_11",
+      "group": "targeted",
+      "question_type": "targeted",
+      "expected_slots": [
+        "department"
+      ],
+      "parts": [
+        "examples/clinic/audio/test_11-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "department",
+      "targets": [
+        "口腔科"
+      ],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 1,
+      "expected_slot": "department"
+    },
+    {
+      "case_id": "test_12",
+      "group": "open_pause",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_12-01.wav",
+        "examples/clinic/audio/test_12-02.wav"
+      ],
+      "pause_ms": 1000.0,
+      "context": "registration",
+      "targets": [
+        "康复科",
+        "下周六",
+        "下午"
+      ],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": -1,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_13",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_13-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_14",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_14-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_15",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_15-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 1,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_16",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_16-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": -1,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_17",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_17-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_18",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_18-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 0,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_19",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_19-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Kangkang",
+      "rate": -1,
+      "expected_slot": null
+    },
+    {
+      "case_id": "test_20",
+      "group": "open_long",
+      "question_type": "open",
+      "expected_slots": [],
+      "parts": [
+        "examples/clinic/audio/test_20-01.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "registration",
+      "targets": [],
+      "split": "test",
+      "voice": "Microsoft Yaoyao",
+      "rate": 1,
+      "expected_slot": null
+    },
+    {
+      "case_id": "smoke_short",
+      "group": "yes_no_proxy",
+      "question_type": "yes_no",
+      "expected_slots": [],
+      "parts": [
+        "examples/smoke/short.wav"
+      ],
+      "pause_ms": 0.0,
+      "context": "confirm",
+      "targets": [
+        "confirm"
+      ],
+      "split": "proxy",
+      "voice": "(见 A 的 README：Windows 语音合成)",
+      "rate": 0,
+      "expected_slot": null
+    }
+  ]
+}

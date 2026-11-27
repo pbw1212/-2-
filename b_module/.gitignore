@@ -1,0 +1,10 @@
+# 模块 B 本地缓存与中间产物
+.cache/
+__pycache__/
+*.pyc
+
+# 重建出来的整轮音频（源音频在 a_module/examples 下，这里只是拼接缓存）
+.cache/wav/
+
+# 临时评测输出
+results/tmp/

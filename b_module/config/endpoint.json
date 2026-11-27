@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "comment": "B 模块阶段一配置。所有阈值单位均为毫秒；dBFS 阈值为与 A 模块 activity() 同式的帧 RMS。",
+
+  "audio": {
+    "frame_ms": 20.0,
+    "detect_dbfs": -45.0,
+    "annotate_dbfs": -60.0,
+    "annotate_min_speech_frames": 3,
+    "reconstruct_trim_dbfs": -60.0,
+    "reconstruct_trim_margin_ms": 0.0,
+    "tail_pad_ms": 2000.0,
+    "comment": "detect_dbfs 必须与 A 的 activity() 一致（-45）。annotate/trim 用 -60：实测 -45 会切掉平均 122 ms、最多 220 ms 的字末渐弱尾音（听感上'最后一个字被吞掉一半'），且会把真值定早、使截断率被低估。"
+  },
+
+  "strategies": {
+    "fixed": {
+      "thresholds_ms": [300, 600, 900, 1200, 1500],
+      "default_ms": 900
+    },
+    "adaptive_question": {
+      "open": 1500,
+      "targeted": 600,
+      "yes_no": 600,
+      "fallback_ms": 900,
+      "comment": "open=1500 是由固定阈值扫描定的：6 条带停顿样本的“检测器可观测静音”为 820~1220 ms（比设计停顿长 20~220 ms，因为尾音落到 -45 dBFS 以下后检测器已判静音），只有 1500 档能 0 截断。定向/是非轮不需要这么长，所以差异化才有收益。"
+    },
+    "adaptive_text": {
+      "short_answer_ms": 450,
+      "continuation_ms": 1500,
+      "stability_ms": 200,
+      "max_wait_ms": 1500,
+      "short_answer_max_chars": 6,
+      "short_answer_patterns": ["对", "是", "好", "不对", "不是", "嗯", "可以", "行"],
+      "continuation_patterns": ["我想", "我要", "还要", "然后", "如果", "麻烦", "那个", "就是", "另外"],
+      "continuation_tail_chars": ["的", "和", "跟", "在", "把", "帮", "然后", "还有"]
+    }
+  },
+
+  "limits": {
+    "no_speech_ms": 6000.0,
+    "hard_cap_ms": 30000.0,
+    "max_wait_ms": 1500.0
+  },
+
+  "evaluation": {
+    "tolerance_ms": 20.0,
+    "min_region_gap_ms": 300.0
+  },
+
+  "reason_semantics": {
+    "fixed_silence": "固定阈值触发，正常轮末",
+    "adaptive_silence": "自适应策略触发（含 1500ms 等待上限），正常轮末",
+    "no_speech": "整轮未检测到语音，下游按 no_input 处理",
+    "timeout": "整轮超过 hard_cap_ms，下游按 error 处理"
+  }
+}

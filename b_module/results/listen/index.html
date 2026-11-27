@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>B 模块轮末标注 · 听审台</title>
+<style>
+body{font-family:system-ui,'Microsoft YaHei',sans-serif;margin:24px;max-width:1100px;color:#222}
+h1{font-size:20px} h2{font-size:15px;margin-top:28px;border-top:2px solid #eee;padding-top:16px}
+.hint{background:#f6f8fa;border-left:4px solid #1f77b4;padding:10px 14px;font-size:13px;line-height:1.7}
+.row{display:flex;gap:18px;align-items:flex-start}
+.meta{font-size:13px;line-height:1.8;min-width:310px}
+.meta code{background:#f2f2f2;padding:1px 4px;border-radius:3px}
+audio{width:320px;display:block;margin:6px 0}
+img{width:620px;border:1px solid #ddd;border-radius:4px}
+.bad{color:#c00;font-weight:600} .ok{color:#2a7a2a;font-weight:600}
+</style></head><body>
+<h1>B 模块轮末标注 · 听审台（v2：片段跨过轮末）</h1>
+<div class="hint"><b>主判据是 ① 边界特写</b>：片段总长 800 ms，<b>标注轮末正好在正中间（第 400 ms 处）</b>。听完整的 800 ms——字尾应当自然收掉；若在正中间听到"突然变哑"的硬切口，说明还在裁尾音。<br>② 句尾片段跨过轮末（前 1500 ms + 后 400 ms），可对着进度条感受完整收尾。③ 轮末之后 800 ms 应完全静音（有声音＝标早了）。④ 整条 + 曲线：紫色竖线右侧不应再有绿色语音段。<br>结论写进 <code>results/listen/听审表.md</code>，再用 <code>python -m b_module verify &lt;case...&gt; --note "听审 姓名 日期"</code> 记录。</div>
+<h2>dev_01</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_pause</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>3600 ms</code> · 总时长 <code>5600 ms</code></div>
+<div>句中停顿 设计 <code>1000</code> / 实测 <code>1000</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-34.0 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/dev_01__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/dev_01__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/dev_01__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/dev_01__full.wav"></audio>
+<img loading="lazy" src="../annotation/dev_01.png" alt="energy">
+</div></div>
+<h2>test_01</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_pause</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>3880 ms</code> · 总时长 <code>5880 ms</code></div>
+<div>句中停顿 设计 <code>800</code> / 实测 <code>800</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-53.8 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/test_01__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/test_01__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/test_01__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/test_01__full.wav"></audio>
+<img loading="lazy" src="../annotation/test_01.png" alt="energy">
+</div></div>
+<h2>test_02</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_pause</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>3760 ms</code> · 总时长 <code>5770 ms</code></div>
+<div>句中停顿 设计 <code>650</code> / 实测 <code>640</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-50.2 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/test_02__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/test_02__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/test_02__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/test_02__full.wav"></audio>
+<img loading="lazy" src="../annotation/test_02.png" alt="energy">
+</div></div>
+<h2>test_07</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_pause</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>3860 ms</code> · 总时长 <code>5870 ms</code></div>
+<div>句中停顿 设计 <code>850</code> / 实测 <code>840</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-53.3 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/test_07__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/test_07__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/test_07__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/test_07__full.wav"></audio>
+<img loading="lazy" src="../annotation/test_07.png" alt="energy">
+</div></div>
+<h2>test_09</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_pause</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>3960 ms</code> · 总时长 <code>5960 ms</code></div>
+<div>句中停顿 设计 <code>700</code> / 实测 <code>700</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-51.5 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/test_09__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/test_09__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/test_09__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/test_09__full.wav"></audio>
+<img loading="lazy" src="../annotation/test_09.png" alt="energy">
+</div></div>
+<h2>test_12</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_pause</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>4780 ms</code> · 总时长 <code>6780 ms</code></div>
+<div>句中停顿 设计 <code>1000</code> / 实测 <code>1000</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-53.9 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/test_12__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/test_12__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/test_12__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/test_12__full.wav"></audio>
+<img loading="lazy" src="../annotation/test_12.png" alt="energy">
+</div></div>
+<h2>smoke_short</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>yes_no_proxy</code> · 问题类型 <code>yes_no</code></div>
+<div>标注轮末 <code>180 ms</code> · 总时长 <code>2180 ms</code></div>
+<div>句中停顿 设计 <code>0</code> / 实测 <code>0</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-22.7 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/smoke_short__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/smoke_short__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/smoke_short__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/smoke_short__full.wav"></audio>
+<img loading="lazy" src="../annotation/smoke_short.png" alt="energy">
+</div></div>
+<h2>dev_02</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>targeted</code> · 问题类型 <code>targeted</code></div>
+<div>标注轮末 <code>2020 ms</code> · 总时长 <code>4020 ms</code></div>
+<div>句中停顿 设计 <code>0</code> / 实测 <code>0</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-23.3 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/dev_02__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/dev_02__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/dev_02__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/dev_02__full.wav"></audio>
+<img loading="lazy" src="../annotation/dev_02.png" alt="energy">
+</div></div>
+<h2>test_13</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_long</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>2540 ms</code> · 总时长 <code>4540 ms</code></div>
+<div>句中停顿 设计 <code>0</code> / 实测 <code>0</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-53.6 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/test_13__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/test_13__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/test_13__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/test_13__full.wav"></audio>
+<img loading="lazy" src="../annotation/test_13.png" alt="energy">
+</div></div>
+<h2>dev_04</h2>
+<div class="row">
+<div class="meta">
+<div>分组 <code>open_full</code> · 问题类型 <code>open</code></div>
+<div>标注轮末 <code>2480 ms</code> · 总时长 <code>4480 ms</code></div>
+<div>句中停顿 设计 <code>0</code> / 实测 <code>0</code> ms</div>
+<div>轮末之后峰值 <code>-120.0 dBFS</code></div>
+<div>轮末前 100 ms 峰值 <code>-33.2 dBFS</code></div>
+</div>
+<div>
+<div>① 边界特写（400 ms 前 + 400 ms 后，轮末在正中间）—— 主判据</div>
+<audio controls preload="none" src="../../.cache/listen/dev_04__coda.wav"></audio>
+<div>② 句尾 + 轮末后 400 ms（轮末在片段第 1500 ms 处）</div>
+<audio controls preload="none" src="../../.cache/listen/dev_04__tail.wav"></audio>
+<div>③ 轮末之后 800 ms —— 应完全静音</div>
+<audio controls preload="none" src="../../.cache/listen/dev_04__head.wav"></audio>
+<div>④ 整条（对照下面的曲线）</div>
+<audio controls preload="none" src="../../.cache/listen/dev_04__full.wav"></audio>
+<img loading="lazy" src="../annotation/dev_04.png" alt="energy">
+</div></div>
+</body></html>
