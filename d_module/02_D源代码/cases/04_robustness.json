@@ -1,0 +1,117 @@
+{
+  "cases": [
+    {
+      "case_id": "c06_faq_interrupt",
+      "title": "中途咨询后接回确认",
+      "purpose": "确认前问“复诊要带什么”，D 用 C 的 FAQ 答案作答并保留草稿，播报后接回原来的确认动作。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "nlu", "text": "复诊要带什么？"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 3,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c07_cancel",
+      "title": "明确取消，不写入记录",
+      "purpose": "复述阶段说“取消这次登记”，草稿结束、数据库不新增记录。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "nlu", "text": "取消这次登记"}
+      ],
+      "expect": {
+        "registrations": 0,
+        "max_turns": 2,
+        "fields": {}
+      }
+    },
+    {
+      "case_id": "c08_duplicate_confirm",
+      "title": "重复确认只写一条",
+      "purpose": "保存成功后用户又说了一次“对”，D 回“已经保存过”，数据库仍只有一条记录。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "nlu", "text": "对"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c10_no_input",
+      "title": "没有听清时重问",
+      "purpose": "一轮无输入后保留草稿并重问当前字段，患者补充后流程继续。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "我想预约复诊"},
+        {"type": "nlu", "payload": {"intent": "unknown", "slots": {}, "status": "no_input"}},
+        {"type": "nlu", "text": "康复科"},
+        {"type": "nlu", "text": "下周四"},
+        {"type": "nlu", "text": "下午"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 6,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c11_playback_retry",
+      "title": "播报失败后用新 reply_id 重发",
+      "purpose": "确认回复首次播放失败，D 保留草稿、换新 reply_id 重发，播完后仍能正常确认保存。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午", "playback": "failed"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 2,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c12_save_failure",
+      "title": "保存失败后重试",
+      "purpose": "确认时数据库写入失败，D 保留草稿并提示再说一次确认；重试成功后只有一条记录。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "save_fault"},
+        {"type": "nlu", "text": "对"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 3,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c13_late_turn",
+      "title": "迟到的旧轮次被忽略",
+      "purpose": "保存完成后再收到上一轮的确认事件，D 按轮次去重，不产生重复记录。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "nlu", "text": "对"},
+        {"type": "late_nlu", "turn_id": 1, "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 3,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+﻿==============================================================================
+用例：demo_inherit_correct_confirm  沿用上次医生 → 改日期 → 显式确认
+==============================================================================
+      [TURN_CONTEXT turn=1 phase=idle qtype=open expected=[]]
+
+用户(turn 1)：还是上次那位，下周四下午
+D  → 为您登记复诊：康复科张医生，12月3日下午，对吗？
+      [action=restate_confirm, phase=confirming]
+      [TURN_CONTEXT turn=2 phase=confirming qtype=yes_no expected=[]]
+      [PLAYBACK_RESULT completed]
+
+用户(turn 2)：改成下周五
+D  → 为您登记复诊：康复科张医生，12月4日下午，对吗？
+      [action=restate_confirm, phase=confirming]
+      [TURN_CONTEXT turn=3 phase=confirming qtype=yes_no expected=[]]
+      [PLAYBACK_RESULT completed]
+
+用户(turn 3)：对
+D  → 已为您登记：康复科张医生，12月4日下午。登记编号 REG-0001。
+      [action=saved, phase=idle]
+      [PLAYBACK_RESULT completed]
+
+结果：成功；用户轮数=3；重复询问=0；记录数=1
+  记录 REG-0001：科室=rehab 医生=d_rehab_zhang 日期=2026-12-04 时段=afternoon
+
+本次登记库：C:\Users\Lenovo\Desktop\临时工作\提交\04_D演示\demo_registrations.sqlite

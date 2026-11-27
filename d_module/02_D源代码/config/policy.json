@@ -1,0 +1,7 @@
+{
+  "inherit_history": true,
+  "clarify_ambiguous": true,
+  "max_reprompt": 2,
+  "confirm_requires_playback": true,
+  "history_confirm_style": "candidate"
+}

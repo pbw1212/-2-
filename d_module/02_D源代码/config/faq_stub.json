@@ -1,0 +1,30 @@
+{
+  "version": "stub-2026-11",
+  "note": "C 未接通时的本地问答替身。正式联调由 C 返回同一结构，D 只读 answer_text。",
+  "faqs": [
+    {"faq_id": "faq_what_to_bring", "question": "复诊要带什么",
+     "keywords": ["带什么", "要带", "准备什么", "带哪些"],
+     "answer_text": "复诊请带上医保卡、就诊卡，还有上次的检查报告和正在吃的药盒。", "score": 0.91},
+    {"faq_id": "faq_process", "question": "复诊流程怎么走",
+     "keywords": ["流程", "怎么走", "怎么办理", "先到哪里"],
+     "answer_text": "先到一楼大厅取号，再到三楼分诊台报到，等叫号后到对应诊室。", "score": 0.88},
+    {"faq_id": "faq_time", "question": "门诊时间",
+     "keywords": ["门诊时间", "几点上班", "几点下班", "几点开门"],
+     "answer_text": "门诊上午八点到十一点半，下午一点半到五点，周末只有上午。", "score": 0.86},
+    {"faq_id": "faq_parking", "question": "停车",
+     "keywords": ["停车", "车位", "开车"],
+     "answer_text": "院内停车场从东门进，两小时以内免费，超时按每小时五元收取。", "score": 0.83},
+    {"faq_id": "faq_medicine", "question": "能不能代取药",
+     "keywords": ["取药", "代取", "拿药"],
+     "answer_text": "可以代取，需要带患者本人的就诊卡和取药单。", "score": 0.85},
+    {"faq_id": "faq_cost", "question": "医保怎么报销",
+     "keywords": ["报销", "医保", "自费"],
+     "answer_text": "带医保卡在收费窗口直接结算，复诊的诊查费可以按比例报销。", "score": 0.84},
+    {"faq_id": "faq_fasting", "question": "需要空腹吗",
+     "keywords": ["空腹", "抽血", "化验"],
+     "answer_text": "如果这次要抽血化验，请空腹来，早上八点前到最合适。", "score": 0.87},
+    {"faq_id": "faq_cancel", "question": "怎么取消预约",
+     "keywords": ["取消预约", "怎么取消", "改时间"],
+     "answer_text": "取消预约可以到一楼服务台，或者拨打门诊电话，提前一天办理。", "score": 0.82}
+  ]
+}

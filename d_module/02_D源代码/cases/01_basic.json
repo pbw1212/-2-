@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "case_id": "c01_one_shot",
+      "title": "一轮给全三项，直接复述确认",
+      "purpose": "验证同一轮给出科室、日期、时段后，D 能立刻生成完整复述并在下一轮保存。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "我想预约康复科下周四下午复诊"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 2,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c02_stepwise",
+      "title": "逐项补全后确认",
+      "purpose": "验证空表单起步时按固定顺序补问，字段逐个填入后复述保存。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "我想预约复诊"},
+        {"type": "nlu", "text": "康复科"},
+        {"type": "nlu", "text": "下周四"},
+        {"type": "nlu", "text": "下午"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 5,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "departments": [
+    {"id": "rehab", "name": "康复科", "aliases": ["康复", "康复医学科", "康复门诊"]},
+    {"id": "ortho", "name": "骨科", "aliases": ["骨科", "骨外科", "关节外科"]},
+    {"id": "cardio", "name": "心内科", "aliases": ["心内科", "心血管内科", "心脏内科"]},
+    {"id": "neuro", "name": "神经内科", "aliases": ["神经内科", "神内"]},
+    {"id": "tcm", "name": "中医科", "aliases": ["中医科", "中医"]},
+    {"id": "ophtha", "name": "眼科", "aliases": ["眼科", "眼病"]},
+    {"id": "dental", "name": "口腔科", "aliases": ["口腔科", "口腔"]},
+    {"id": "derm", "name": "皮肤科", "aliases": ["皮肤科", "皮肤"]}
+  ],
+  "doctors": [
+    {"id": "d_rehab_zhang", "name": "张医生", "department": "rehab",
+     "aliases": ["张建国", "张大夫", "张主任"]},
+    {"id": "d_rehab_li", "name": "李医生", "department": "rehab",
+     "aliases": ["李秀兰", "李大夫"]},
+    {"id": "d_ortho_wang", "name": "王医生", "department": "ortho",
+     "aliases": ["王强", "王大夫"]},
+    {"id": "d_cardio_chen", "name": "陈医生", "department": "cardio",
+     "aliases": ["陈芳", "陈大夫"]}
+  ]
+}

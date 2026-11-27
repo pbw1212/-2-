@@ -1,0 +1,903 @@
+{
+  "reference_date": "2026-11-24",
+  "cases": 15,
+  "improved": {
+    "variant": "improved",
+    "cases": 15,
+    "successes": 15,
+    "success_rate": 1.0,
+    "planned_tasks": 14,
+    "planned_success_rate": 1.0,
+    "user_turns_median": 3.0,
+    "user_turns_mean": 3.07,
+    "user_turns_values": [
+      2,
+      5,
+      2,
+      2,
+      3,
+      4,
+      3,
+      4,
+      3,
+      2,
+      3,
+      6,
+      2,
+      3,
+      2
+    ],
+    "repeat_questions_median": 0.0,
+    "repeat_questions_mean": 0.0,
+    "repeat_questions_total": 0,
+    "field_total": 56,
+    "field_ok": 56,
+    "field_accuracy": 1.0,
+    "duplicate_rows": 0,
+    "registrations_written": 14,
+    "cancel_no_write": true,
+    "playback_retry_ok": true,
+    "save_retry_ok": true,
+    "per_case": [
+      {
+        "case_id": "c01_one_shot",
+        "title": "一轮给全三项，直接复述确认",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c02_stepwise",
+        "title": "逐项补全后确认",
+        "success": true,
+        "user_turns": 5,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_department",
+          "ask_date",
+          "ask_period",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c03_inherit_history",
+        "title": "沿用上次科室与医生",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": "d_rehab_zhang",
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": "d_rehab_zhang",
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c15_inherit_other_profile",
+        "title": "换一个档案沿用上次记录",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "ortho",
+          "doctor": "d_ortho_wang",
+          "date": "2026-12-04",
+          "period": "morning"
+        },
+        "expected_fields": {
+          "department": "ortho",
+          "doctor": "d_ortho_wang",
+          "date": "2026-12-04",
+          "period": "morning"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c04_date_correction",
+        "title": "只改日期，其他字段保持",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c05_department_change",
+        "title": "换科室后医生依赖检查",
+        "success": true,
+        "user_turns": 4,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "ortho",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "ortho",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "ask_doctor",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c09_ambiguous_date",
+        "title": "周五未说周次，按字段澄清",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_date",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c14_deny_then_fix",
+        "title": "确认时说“不对”，进入纠正询问",
+        "success": true,
+        "user_turns": 4,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "ask_correction",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c06_faq_interrupt",
+        "title": "中途咨询后接回确认",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "faq_resume_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c07_cancel",
+        "title": "明确取消，不写入记录",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 0,
+        "actual_fields": null,
+        "expected_fields": {},
+        "actions": [
+          "restate_confirm",
+          "cancel_ack"
+        ]
+      },
+      {
+        "case_id": "c08_duplicate_confirm",
+        "title": "重复确认只写一条",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved",
+          "session_closed"
+        ]
+      },
+      {
+        "case_id": "c10_no_input",
+        "title": "没有听清时重问",
+        "success": true,
+        "user_turns": 6,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_department",
+          "reprompt",
+          "ask_date",
+          "ask_period",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c11_playback_retry",
+        "title": "播报失败后用新 reply_id 重发",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "retry_playback",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c12_save_failure",
+        "title": "保存失败后重试",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "retry_save",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c13_late_turn",
+        "title": "迟到的旧轮次被忽略",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved"
+        ]
+      }
+    ],
+    "turns_within_budget": 15,
+    "subsets": {
+      "历史继承类": {
+        "cases": 2,
+        "success": 2,
+        "turns_mean": 2.0,
+        "repeat_total": 0
+      },
+      "歧义澄清类": {
+        "cases": 1,
+        "success": 1,
+        "turns_mean": 3.0,
+        "repeat_total": 0
+      },
+      "局部更正类": {
+        "cases": 3,
+        "success": 3,
+        "turns_mean": 3.67,
+        "repeat_total": 0
+      },
+      "异常恢复类": {
+        "cases": 6,
+        "success": 6,
+        "turns_mean": 3.0,
+        "repeat_total": 0
+      }
+    }
+  },
+  "baseline": {
+    "variant": "baseline",
+    "cases": 15,
+    "successes": 14,
+    "success_rate": 0.9333,
+    "planned_tasks": 14,
+    "planned_success_rate": 0.9286,
+    "user_turns_median": 3.0,
+    "user_turns_mean": 3.21,
+    "user_turns_values": [
+      2,
+      5,
+      3,
+      3,
+      3,
+      4,
+      4,
+      3,
+      2,
+      3,
+      6,
+      2,
+      3,
+      2
+    ],
+    "repeat_questions_median": 0.0,
+    "repeat_questions_mean": 0.07,
+    "repeat_questions_total": 1,
+    "field_total": 56,
+    "field_ok": 55,
+    "field_accuracy": 0.9821,
+    "duplicate_rows": 0,
+    "registrations_written": 14,
+    "cancel_no_write": true,
+    "playback_retry_ok": true,
+    "save_retry_ok": true,
+    "per_case": [
+      {
+        "case_id": "c01_one_shot",
+        "title": "一轮给全三项，直接复述确认",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c02_stepwise",
+        "title": "逐项补全后确认",
+        "success": true,
+        "user_turns": 5,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_department",
+          "ask_date",
+          "ask_period",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c03_inherit_history",
+        "title": "沿用上次科室与医生",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": false,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": "d_rehab_zhang",
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": "d_rehab_zhang",
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_department",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c15_inherit_other_profile",
+        "title": "换一个档案沿用上次记录",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": false,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "ortho",
+          "doctor": "d_ortho_wang",
+          "date": "2026-12-04",
+          "period": "morning"
+        },
+        "expected_fields": {
+          "department": "ortho",
+          "doctor": "d_ortho_wang",
+          "date": "2026-12-04",
+          "period": "morning"
+        },
+        "actions": [
+          "ask_department",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c04_date_correction",
+        "title": "只改日期，其他字段保持",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c05_department_change",
+        "title": "换科室后医生依赖检查",
+        "success": false,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "ortho",
+          "doctor": "d_rehab_zhang",
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "ortho",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c09_ambiguous_date",
+        "title": "周五未说周次，按字段澄清",
+        "success": true,
+        "user_turns": 4,
+        "within_budget": false,
+        "repeat_questions": 1,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_date",
+          "ask_date",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c14_deny_then_fix",
+        "title": "确认时说“不对”，进入纠正询问",
+        "success": true,
+        "user_turns": 4,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-04",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "ask_correction",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c06_faq_interrupt",
+        "title": "中途咨询后接回确认",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "faq_resume_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c07_cancel",
+        "title": "明确取消，不写入记录",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 0,
+        "actual_fields": null,
+        "expected_fields": {},
+        "actions": [
+          "restate_confirm",
+          "cancel_ack"
+        ]
+      },
+      {
+        "case_id": "c08_duplicate_confirm",
+        "title": "重复确认只写一条",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved",
+          "session_closed"
+        ]
+      },
+      {
+        "case_id": "c10_no_input",
+        "title": "没有听清时重问",
+        "success": true,
+        "user_turns": 6,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "ask_department",
+          "reprompt",
+          "ask_date",
+          "ask_period",
+          "restate_confirm",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c11_playback_retry",
+        "title": "播报失败后用新 reply_id 重发",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "retry_playback",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c12_save_failure",
+        "title": "保存失败后重试",
+        "success": true,
+        "user_turns": 3,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "retry_save",
+          "saved"
+        ]
+      },
+      {
+        "case_id": "c13_late_turn",
+        "title": "迟到的旧轮次被忽略",
+        "success": true,
+        "user_turns": 2,
+        "within_budget": true,
+        "repeat_questions": 0,
+        "registrations": 1,
+        "actual_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "expected_fields": {
+          "department": "rehab",
+          "doctor": null,
+          "date": "2026-12-03",
+          "period": "afternoon"
+        },
+        "actions": [
+          "restate_confirm",
+          "saved"
+        ]
+      }
+    ],
+    "turns_within_budget": 12,
+    "subsets": {
+      "历史继承类": {
+        "cases": 2,
+        "success": 2,
+        "turns_mean": 3.0,
+        "repeat_total": 0
+      },
+      "歧义澄清类": {
+        "cases": 1,
+        "success": 1,
+        "turns_mean": 4.0,
+        "repeat_total": 1
+      },
+      "局部更正类": {
+        "cases": 3,
+        "success": 2,
+        "turns_mean": 3.33,
+        "repeat_total": 0
+      },
+      "异常恢复类": {
+        "cases": 6,
+        "success": 6,
+        "turns_mean": 3.0,
+        "repeat_total": 0
+      }
+    }
+  }
+}

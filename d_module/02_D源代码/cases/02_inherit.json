@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "case_id": "c03_inherit_history",
+      "title": "沿用上次科室与医生",
+      "purpose": "档案 p001 上次在康复科由张医生接诊。用户只说“还是上次那位，下周四下午”，改进组应继承并用一次确认完成，基线需要重新说科室和医生。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "profile", "profile_id": "p001"},
+        {"type": "nlu", "text": "还是上次那位，下周四下午"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "steps_baseline": [
+        {"type": "profile", "profile_id": "p001"},
+        {"type": "nlu", "text": "还是上次那位，下周四下午"},
+        {"type": "nlu", "text": "康复科，张医生"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 2,
+        "fields": {"department": "rehab", "doctor": "d_rehab_zhang", "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c15_inherit_other_profile",
+      "title": "换一个档案沿用上次记录",
+      "purpose": "档案 p002 上次在骨科由王医生接诊。用户说“老样子，下周五上午”，改进组直接带出骨科与王医生；基线需要重新说明科室和医生。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "profile", "profile_id": "p002"},
+        {"type": "nlu", "text": "老样子，下周五上午"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "steps_baseline": [
+        {"type": "profile", "profile_id": "p002"},
+        {"type": "nlu", "text": "老样子，下周五上午"},
+        {"type": "nlu", "text": "骨科，王医生"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 2,
+        "fields": {"department": "ortho", "doctor": "d_ortho_wang", "date": "2026-12-04", "period": "morning"}
+      }
+    }
+  ]
+}

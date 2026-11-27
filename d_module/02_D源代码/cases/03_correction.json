@@ -1,0 +1,81 @@
+{
+  "cases": [
+    {
+      "case_id": "c04_date_correction",
+      "title": "只改日期，其他字段保持",
+      "purpose": "复述后用户改口“改成下周五”，D 只替换日期并重新复述；科室与时段保持不变，最终只保存一条记录。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "nlu", "text": "改成下周五"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 3,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-04", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c05_department_change",
+      "title": "换科室后医生依赖检查",
+      "purpose": "已选康复科张医生后改到骨科，原医生不属于新科室。改进组清空医生并追问，基线不做依赖检查会把不相符的医生一起保存。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科张医生，下周四下午"},
+        {"type": "nlu", "text": "换成骨科"},
+        {"type": "nlu", "text": "不用了"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "steps_baseline": [
+        {"type": "nlu", "text": "康复科张医生，下周四下午"},
+        {"type": "nlu", "text": "换成骨科"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 4,
+        "fields": {"department": "ortho", "doctor": null, "date": "2026-12-03", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c09_ambiguous_date",
+      "title": "周五未说周次，按字段澄清",
+      "purpose": "用户只说“周五”，改进组用两个候选做定向澄清，基线只能重复开放式提问，患者需要自己把日期说全。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "我想约康复科周五下午"},
+        {"type": "nlu", "text": "下周五"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "steps_baseline": [
+        {"type": "nlu", "text": "我想约康复科周五下午"},
+        {"type": "nlu", "text": "周五"},
+        {"type": "nlu", "text": "12月4日"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 3,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-04", "period": "afternoon"}
+      }
+    },
+    {
+      "case_id": "c14_deny_then_fix",
+      "title": "确认时说“不对”，进入纠正询问",
+      "purpose": "复述后用户只说“不对”，D 不直接取消，而是问哪一项要改；用户给出新日期后重新复述并保存。",
+      "reference_date": "2026-11-24",
+      "steps": [
+        {"type": "nlu", "text": "康复科下周四下午"},
+        {"type": "nlu", "text": "不对"},
+        {"type": "nlu", "text": "日期改成下周五"},
+        {"type": "nlu", "text": "对"}
+      ],
+      "expect": {
+        "registrations": 1,
+        "max_turns": 4,
+        "fields": {"department": "rehab", "doctor": null, "date": "2026-12-04", "period": "afternoon"}
+      }
+    }
+  ]
+}

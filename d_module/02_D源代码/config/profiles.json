@@ -1,0 +1,16 @@
+{
+  "profiles": [
+    {"profile_id": "p001", "display_name": "王秀英", "last_department": "rehab",
+     "last_doctor": "d_rehab_zhang", "visits": 3,
+     "note": "脑卒中后康复复诊，固定在康复科"},
+    {"profile_id": "p002", "display_name": "刘志强", "last_department": "ortho",
+     "last_doctor": "d_ortho_wang", "visits": 2,
+     "note": "膝关节置换术后复查"},
+    {"profile_id": "p003", "display_name": "赵桂兰", "last_department": "cardio",
+     "last_doctor": "d_cardio_chen", "visits": 4,
+     "note": "高血压合并冠心病，长期随访"},
+    {"profile_id": "p004", "display_name": "孙德明", "last_department": "rehab",
+     "last_doctor": "d_rehab_li", "visits": 1,
+     "note": "腰椎康复，上次由李医生接诊"}
+  ]
+}
