@@ -1,6 +1,8 @@
 # OS / editor artifacts
 .DS_Store
 **/.DS_Store
+~$*
+**/~$*
 
 # Python & test artifacts
 __pycache__/
