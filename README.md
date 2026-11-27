@@ -35,6 +35,7 @@
 ├── d_module/                      # 模块 D：多轮对话管理与 SQLite 登记
 ├── e_module/                      # 模块 E：离线 TTS、门控服务与实验评测（当前已合入）
 │   ├── models/                    # 轻量 SyllableBiGRUCRF 韵律预测权重（~2 MB）
+│   ├── outputs/                   # 最终评测 JSON/JSONL 报告与实验对比图（outputs/figures/）
 │   └── tests/                     # E 模块单元测试（25 项）
 ├── docs/                          # 全部项目文档（全组联调接口规范 + 各模块交付方案）
 │   ├── interface_spec_v1.md       # 第一版冻结联调接口规范
@@ -94,4 +95,4 @@ python e_module/run_mock_integration.py
 python e_module/eval_objective.py
 ```
 
-更完整的 E 模块结构说明、实验细节及树莓派 64-bit 部署步骤请查阅 [`e_module/README.md`](e_module/README.md)；本地运行实验与合成测试时，产物默认写入被 `.gitignore` 忽略的 `e_module/outputs/` 目录。
+更完整的 E 模块结构说明、实验细节及树莓派 64-bit 部署步骤请查阅 [`e_module/README.md`](e_module/README.md)；最终评测 JSON/JSONL 报告与对比图位于 [`e_module/outputs/`](e_module/outputs/)，本地重跑产生的中间音频与缓存默认写入 `.gitignore` 忽略的子目录。

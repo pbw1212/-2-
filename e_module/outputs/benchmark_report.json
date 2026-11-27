@@ -1,0 +1,1319 @@
+{
+  "ablation": {
+    "pause_ms_default": 260,
+    "vocoder_mode": "fast_griffin_lim",
+    "gl_iters": 25,
+    "records": [
+      {
+        "sample_id": "short_prompt",
+        "category": "short_prompt",
+        "action": "baseline",
+        "mode": "baseline_raw",
+        "raw_text": "请问您想约哪天？",
+        "normalized_text": "请问您想约哪天？",
+        "segment_count": 8,
+        "segments": [
+          {
+            "text": "qing3",
+            "pinyin": "qing3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "wen4",
+            "pinyin": "wen4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "nin2",
+            "pinyin": "nin2",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "xiang3",
+            "pinyin": "xiang3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "yue1",
+            "pinyin": "yue1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "na3",
+            "pinyin": "na3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "tian1",
+            "pinyin": "tian1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "？",
+            "pinyin": "？",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/baseline_raw/short_prompt.wav",
+        "audio_duration_s": 73.3751,
+        "total_ms": 14356.17,
+        "tacotron2_ms": 7907.59,
+        "vocoder_ms": 6446.94,
+        "rtf": 0.1957,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "multi_field_confirm",
+        "category": "multi_field_confirm",
+        "action": "baseline",
+        "mode": "baseline_raw",
+        "raw_text": "康复科张医生，12月5日 14:30，对吗？",
+        "normalized_text": "康复科张医生，12月5日 14:30，对吗？",
+        "segment_count": 14,
+        "segments": [
+          {
+            "text": "kang1",
+            "pinyin": "kang1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "fu4",
+            "pinyin": "fu4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ke1",
+            "pinyin": "ke1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zhang1",
+            "pinyin": "zhang1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "yi1",
+            "pinyin": "yi1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "sheng1",
+            "pinyin": "sheng1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "，12",
+            "pinyin": "，12",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "yue4",
+            "pinyin": "yue4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "5",
+            "pinyin": "5",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ri4",
+            "pinyin": "ri4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "14:30，",
+            "pinyin": "14:30，",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "dui4",
+            "pinyin": "dui4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ma",
+            "pinyin": "ma",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "？",
+            "pinyin": "？",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/baseline_raw/multi_field_confirm.wav",
+        "audio_duration_s": 76.5794,
+        "total_ms": 13941.57,
+        "tacotron2_ms": 7470.38,
+        "vocoder_ms": 6471.03,
+        "rtf": 0.1821,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "long_faq",
+        "category": "long_faq",
+        "action": "baseline",
+        "mode": "baseline_raw",
+        "raw_text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+        "normalized_text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+        "segment_count": 42,
+        "segments": [
+          {
+            "text": "fu4",
+            "pinyin": "fu4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zhen3",
+            "pinyin": "zhen3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "qing3",
+            "pinyin": "qing3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "dai4",
+            "pinyin": "dai4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "hao3",
+            "pinyin": "hao3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "yi1",
+            "pinyin": "yi1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "bao3",
+            "pinyin": "bao3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ka3",
+            "pinyin": "ka3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "、",
+            "pinyin": "、",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "shen1",
+            "pinyin": "shen1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "fen4",
+            "pinyin": "fen4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zheng4",
+            "pinyin": "zheng4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "he2",
+            "pinyin": "he2",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "shang4",
+            "pinyin": "shang4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ci4",
+            "pinyin": "ci4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "de",
+            "pinyin": "de",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "bing4",
+            "pinyin": "bing4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "li4",
+            "pinyin": "li4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ben3",
+            "pinyin": "ben3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "，",
+            "pinyin": "，",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ti2",
+            "pinyin": "ti2",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "qian2",
+            "pinyin": "qian2",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "shi2",
+            "pinyin": "shi2",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "wu3",
+            "pinyin": "wu3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "fen1",
+            "pinyin": "fen1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zhong1",
+            "pinyin": "zhong1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "dao4",
+            "pinyin": "dao4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "yi1",
+            "pinyin": "yi1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "lou2",
+            "pinyin": "lou2",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "da4",
+            "pinyin": "da4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ting1",
+            "pinyin": "ting1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zi4",
+            "pinyin": "zi4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zhu4",
+            "pinyin": "zhu4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "ji1",
+            "pinyin": "ji1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "huo4",
+            "pinyin": "huo4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "chuang1",
+            "pinyin": "chuang1",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "kou3",
+            "pinyin": "kou3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "qu3",
+            "pinyin": "qu3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "hao4",
+            "pinyin": "hao4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "hou4",
+            "pinyin": "hou4",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "zhen3",
+            "pinyin": "zhen3",
+            "pause_after_ms": 0
+          },
+          {
+            "text": "。",
+            "pinyin": "。",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/baseline_raw/long_faq.wav",
+        "audio_duration_s": 60.7318,
+        "total_ms": 102882.42,
+        "tacotron2_ms": 97862.95,
+        "vocoder_ms": 5019.16,
+        "rtf": 1.694,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "short_prompt",
+        "category": "short_prompt",
+        "action": "ask_slot",
+        "mode": "basic_pinyin",
+        "raw_text": "请问您想约哪天？",
+        "normalized_text": "请问您想约哪天？",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "请问您想约哪天？",
+            "pinyin": "qing3 wen4 nin2 xiang3 yue1 na3 tian1 ？",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/basic_pinyin/short_prompt.wav",
+        "audio_duration_s": 34.8183,
+        "total_ms": 3921.17,
+        "tacotron2_ms": 2659.21,
+        "vocoder_ms": 1244.72,
+        "rtf": 0.1126,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "short_prompt",
+        "category": "short_prompt",
+        "action": "ask_slot",
+        "mode": "tn_only",
+        "raw_text": "请问您想约哪天？",
+        "normalized_text": "请问您想约哪天?",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "请问您想约哪天?",
+            "pinyin": "qing3 wen4 nin2 xiang3 yue1 na3 tian1 ?",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_only/short_prompt.wav",
+        "audio_duration_s": 20.747,
+        "total_ms": 2164.35,
+        "tacotron2_ms": 1377.76,
+        "vocoder_ms": 774.37,
+        "rtf": 0.1043,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "short_prompt",
+        "category": "short_prompt",
+        "action": "ask_slot",
+        "mode": "tn_prosody",
+        "raw_text": "请问您想约哪天？",
+        "normalized_text": "请问您想约哪天?",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "请问您想约哪天?",
+            "pinyin": "qing3 wen4 #1 nin2 #1 xiang3 #1 yue1 #1 na3 tian1 #3 ?",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_prosody/short_prompt.wav",
+        "audio_duration_s": 1.7647,
+        "total_ms": 246.06,
+        "tacotron2_ms": 130.19,
+        "vocoder_ms": 113.64,
+        "rtf": 0.1394,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "multi_field_confirm",
+        "category": "multi_field_confirm",
+        "action": "confirm",
+        "mode": "basic_pinyin",
+        "raw_text": "康复科张医生，12月5日 14:30，对吗？",
+        "normalized_text": "康复科张医生，12月5日 14:30，对吗？",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "康复科张医生，12月5日 14:30，对吗？",
+            "pinyin": "kang1 fu4 ke1 zhang1 yi1 sheng1 ，12 yue4 5 ri4 14:30， dui4 ma ？",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/basic_pinyin/multi_field_confirm.wav",
+        "audio_duration_s": 34.8183,
+        "total_ms": 3911.84,
+        "tacotron2_ms": 2326.08,
+        "vocoder_ms": 1561.87,
+        "rtf": 0.1123,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "multi_field_confirm",
+        "category": "multi_field_confirm",
+        "action": "confirm",
+        "mode": "tn_only",
+        "raw_text": "康复科张医生，12月5日 14:30，对吗？",
+        "normalized_text": "康复科张医生,十二月五日 下午两点半,对吗?",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "康复科张医生,十二月五日 下午两点半,对吗?",
+            "pinyin": "kang1 fu4 ke1 zhang1 yi1 sheng1 , shi2 er4 yue4 wu3 ri4 xia4 wu3 liang2 dian3 ban4 , dui4 ma5 ?",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_only/multi_field_confirm.wav",
+        "audio_duration_s": 3.5062,
+        "total_ms": 442.87,
+        "tacotron2_ms": 269.1,
+        "vocoder_ms": 169.23,
+        "rtf": 0.1263,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "multi_field_confirm",
+        "category": "multi_field_confirm",
+        "action": "confirm",
+        "mode": "tn_prosody",
+        "raw_text": "康复科张医生，12月5日 14:30，对吗？",
+        "normalized_text": "康复科张医生,十二月五日 下午两点半,对吗?",
+        "segment_count": 3,
+        "segments": [
+          {
+            "text": "康复科张医生,",
+            "pinyin": "kang1 fu4 ke1 #1 zhang1 yi1 sheng1 #3 ,",
+            "pause_after_ms": 260
+          },
+          {
+            "text": "十二月五日 下午两点半,",
+            "pinyin": "shi2 er4 yue4 #1 wu3 ri4 #1 xia4 wu3 #1 liang2 dian3 #1 ban4 #3 ,",
+            "pause_after_ms": 260
+          },
+          {
+            "text": "对吗?",
+            "pinyin": "dui4 ma5 #3 ?",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_prosody/multi_field_confirm.wav",
+        "audio_duration_s": 5.2917,
+        "total_ms": 716.82,
+        "tacotron2_ms": 386.07,
+        "vocoder_ms": 325.06,
+        "rtf": 0.1355,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "long_faq",
+        "category": "long_faq",
+        "action": "faq",
+        "mode": "basic_pinyin",
+        "raw_text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+        "normalized_text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+            "pinyin": "fu4 zhen3 qing3 dai4 hao3 yi1 bao3 ka3 、 shen1 fen4 zheng4 he2 shang4 ci4 de bing4 li4 ben3 ， ti2 qian2 shi2 wu3 fen1 zhong1 dao4 yi1 lou2 da4 ting1 zi4 zhu4 ji1 huo4 chuang1 kou3 qu3 hao4 hou4 zhen3 。",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/basic_pinyin/long_faq.wav",
+        "audio_duration_s": 34.8183,
+        "total_ms": 3978.69,
+        "tacotron2_ms": 2732.85,
+        "vocoder_ms": 1228.85,
+        "rtf": 0.1143,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "long_faq",
+        "category": "long_faq",
+        "action": "faq",
+        "mode": "tn_only",
+        "raw_text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+        "normalized_text": "复诊请带好医保卡,身份证和上次的病历本,提前十五分钟到一楼大厅自助机或窗口取号候诊.",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "复诊请带好医保卡,身份证和上次的病历本,提前十五分钟到一楼大厅自助机或窗口取号候诊.",
+            "pinyin": "fu4 zhen3 qing3 dai4 hao3 yi1 bao2 ka3 , shen1 fen4 zheng4 he2 shang4 ci4 de5 bing4 li4 ben3 , ti2 qian2 shi2 wu3 fen1 zhong1 dao4 yi1 lou2 da4 ting1 zi4 zhu4 ji1 huo4 chuang1 kou3 qu3 hao4 hou4 zhen3 .",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_only/long_faq.wav",
+        "audio_duration_s": 7.5813,
+        "total_ms": 894.03,
+        "tacotron2_ms": 575.37,
+        "vocoder_ms": 313.5,
+        "rtf": 0.1179,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "long_faq",
+        "category": "long_faq",
+        "action": "faq",
+        "mode": "tn_prosody",
+        "raw_text": "复诊请带好医保卡、身份证和上次的病历本，提前十五分钟到一楼大厅自助机或窗口取号候诊。",
+        "normalized_text": "复诊请带好医保卡,身份证和上次的病历本,提前十五分钟到一楼大厅自助机或窗口取号候诊.",
+        "segment_count": 4,
+        "segments": [
+          {
+            "text": "复诊请带好医保卡,",
+            "pinyin": "fu4 zhen3 #1 qing3 #1 dai4 #1 hao3 #1 yi1 bao2 ka3 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "身份证和上次的病历本,",
+            "pinyin": "shen1 fen4 zheng4 #1 he2 #1 shang4 ci4 #1 de5 #1 bing4 li4 ben3 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "提前十五分钟到一楼大厅,",
+            "pinyin": "ti2 qian2 #1 shi2 wu3 fen1 zhong1 #1 dao4 #1 yi1 lou2 #1 da4 ting1 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "自助机或窗口取号候诊.",
+            "pinyin": "zi4 zhu4 ji1 #1 huo4 #1 chuang1 kou3 #1 qu3 hao4 #1 hou4 zhen3 #3 .",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_prosody/long_faq.wav",
+        "audio_duration_s": 9.3152,
+        "total_ms": 1192.59,
+        "tacotron2_ms": 666.18,
+        "vocoder_ms": 515.5,
+        "rtf": 0.128,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "reschedule_confirm",
+        "category": "reschedule_confirm",
+        "action": "confirm",
+        "mode": "basic_pinyin",
+        "raw_text": "已帮您把日期改到2026-12-04下午，康复科张医生，对吗？",
+        "normalized_text": "已帮您把日期改到2026-12-04下午，康复科张医生，对吗？",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "已帮您把日期改到2026-12-04下午，康复科张医生，对吗？",
+            "pinyin": "yi3 bang1 nin2 ba3 ri4 qi1 gai3 dao4 2026-12-04 xia4 wu3 ， kang1 fu4 ke1 zhang1 yi1 sheng1 ， dui4 ma ？",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/basic_pinyin/reschedule_confirm.wav",
+        "audio_duration_s": 34.8183,
+        "total_ms": 4146.38,
+        "tacotron2_ms": 2615.75,
+        "vocoder_ms": 1512.13,
+        "rtf": 0.1191,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "reschedule_confirm",
+        "category": "reschedule_confirm",
+        "action": "confirm",
+        "mode": "tn_only",
+        "raw_text": "已帮您把日期改到2026-12-04下午，康复科张医生，对吗？",
+        "normalized_text": "已帮您把日期改到二零二六年十二月四日下午,康复科张医生,对吗?",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "已帮您把日期改到二零二六年十二月四日下午,康复科张医生,对吗?",
+            "pinyin": "yi3 bang1 nin2 ba3 ri4 qi1 gai3 dao4 er4 ling2 er4 liu4 nian2 shi2 er4 yue4 si4 ri4 xia4 wu3 , kang1 fu4 ke1 zhang1 yi1 sheng1 , dui4 ma5 ?",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_only/reschedule_confirm.wav",
+        "audio_duration_s": 5.1432,
+        "total_ms": 1115.82,
+        "tacotron2_ms": 605.36,
+        "vocoder_ms": 504.23,
+        "rtf": 0.2169,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "reschedule_confirm",
+        "category": "reschedule_confirm",
+        "action": "confirm",
+        "mode": "tn_prosody",
+        "raw_text": "已帮您把日期改到2026-12-04下午，康复科张医生，对吗？",
+        "normalized_text": "已帮您把日期改到二零二六年十二月四日下午,康复科张医生,对吗?",
+        "segment_count": 4,
+        "segments": [
+          {
+            "text": "已帮您把日期改到,",
+            "pinyin": "yi3 bang1 #1 nin2 #1 ba3 #1 ri4 qi1 #1 gai3 #1 dao4 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "二零二六年十二月四日下午,",
+            "pinyin": "er4 ling2 er4 #1 liu4 nian2 #1 shi2 er4 yue4 #1 si4 ri4 #1 xia4 wu3 #3 ,",
+            "pause_after_ms": 260
+          },
+          {
+            "text": "康复科张医生,",
+            "pinyin": "kang1 fu4 ke1 #1 zhang1 yi1 sheng1 #3 ,",
+            "pause_after_ms": 260
+          },
+          {
+            "text": "对吗?",
+            "pinyin": "dui4 ma5 #3 ?",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_prosody/reschedule_confirm.wav",
+        "audio_duration_s": 7.913,
+        "total_ms": 1736.22,
+        "tacotron2_ms": 808.46,
+        "vocoder_ms": 913.8,
+        "rtf": 0.2194,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "faq_with_time",
+        "category": "faq_with_time",
+        "action": "faq",
+        "mode": "basic_pinyin",
+        "raw_text": "门诊取号时间是上午08:05到11:30，下午13:30到16:30，请在3号诊室门口候诊。",
+        "normalized_text": "门诊取号时间是上午08:05到11:30，下午13:30到16:30，请在3号诊室门口候诊。",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "门诊取号时间是上午08:05到11:30，下午13:30到16:30，请在3号诊室门口候诊。",
+            "pinyin": "men2 zhen3 qu3 hao4 shi2 jian1 shi4 shang4 wu3 08:05 dao4 11:30， xia4 wu3 13:30 dao4 16:30， qing3 zai4 3 hao4 zhen3 shi4 men2 kou3 hou4 zhen3 。",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/basic_pinyin/faq_with_time.wav",
+        "audio_duration_s": 34.8183,
+        "total_ms": 4674.17,
+        "tacotron2_ms": 3156.37,
+        "vocoder_ms": 1498.64,
+        "rtf": 0.1342,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "faq_with_time",
+        "category": "faq_with_time",
+        "action": "faq",
+        "mode": "tn_only",
+        "raw_text": "门诊取号时间是上午08:05到11:30，下午13:30到16:30，请在3号诊室门口候诊。",
+        "normalized_text": "门诊取号时间是上午八点零五分到十一点半,下午一点半到四点半,请在三号诊室门口候诊.",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "门诊取号时间是上午八点零五分到十一点半,下午一点半到四点半,请在三号诊室门口候诊.",
+            "pinyin": "men2 zhen3 qu3 hao4 shi2 jian1 shi4 shang4 wu3 ba1 dian3 ling2 wu3 fen1 dao4 shi2 yi4 dian3 ban4 , xia4 wu3 yi4 dian3 ban4 dao4 si4 dian3 ban4 , qing3 zai4 san1 hao4 zhen3 shi4 men2 kou3 hou4 zhen3 .",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_only/faq_with_time.wav",
+        "audio_duration_s": 7.2678,
+        "total_ms": 1098.27,
+        "tacotron2_ms": 731.9,
+        "vocoder_ms": 361.57,
+        "rtf": 0.1511,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "faq_with_time",
+        "category": "faq_with_time",
+        "action": "faq",
+        "mode": "tn_prosody",
+        "raw_text": "门诊取号时间是上午08:05到11:30，下午13:30到16:30，请在3号诊室门口候诊。",
+        "normalized_text": "门诊取号时间是上午八点零五分到十一点半,下午一点半到四点半,请在三号诊室门口候诊.",
+        "segment_count": 4,
+        "segments": [
+          {
+            "text": "门诊取号时间是,",
+            "pinyin": "men2 zhen3 #1 qu3 hao4 #1 shi2 jian1 #1 shi4 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "上午八点零五分到十一点半,",
+            "pinyin": "shang4 wu3 #1 ba1 dian3 #1 ling2 wu3 fen1 #1 dao4 #1 shi2 yi4 dian3 ban4 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "下午一点半到四点半,",
+            "pinyin": "xia4 wu3 #1 yi4 dian3 #1 ban4 dao4 #1 si4 dian3 #1 ban4 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "请在三号诊室门口候诊.",
+            "pinyin": "qing3 #1 zai4 #1 san1 hao4 #1 zhen3 shi4 #1 men2 kou3 #1 hou4 zhen3 #3 .",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_prosody/faq_with_time.wav",
+        "audio_duration_s": 9.2804,
+        "total_ms": 1298.79,
+        "tacotron2_ms": 679.36,
+        "vocoder_ms": 605.84,
+        "rtf": 0.14,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "cancel_done",
+        "category": "cancel_done",
+        "action": "done",
+        "mode": "basic_pinyin",
+        "raw_text": "好的，本次复诊登记已取消，如需重新预约请随时告诉我。",
+        "normalized_text": "好的，本次复诊登记已取消，如需重新预约请随时告诉我。",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "好的，本次复诊登记已取消，如需重新预约请随时告诉我。",
+            "pinyin": "hao3 de ， ben3 ci4 fu4 zhen3 deng1 ji4 yi3 qu3 xiao1 ， ru2 xu1 chong2 xin1 yu4 yue1 qing3 sui2 shi2 gao4 su4 wo3 。",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/basic_pinyin/cancel_done.wav",
+        "audio_duration_s": 34.8183,
+        "total_ms": 4083.72,
+        "tacotron2_ms": 2666.6,
+        "vocoder_ms": 1384.7,
+        "rtf": 0.1173,
+        "hit_max_steps": true,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "cancel_done",
+        "category": "cancel_done",
+        "action": "done",
+        "mode": "tn_only",
+        "raw_text": "好的，本次复诊登记已取消，如需重新预约请随时告诉我。",
+        "normalized_text": "好的,本次复诊登记已取消,如需重新预约请随时告诉我.",
+        "segment_count": 1,
+        "segments": [
+          {
+            "text": "好的,本次复诊登记已取消,如需重新预约请随时告诉我.",
+            "pinyin": "hao3 de5 , ben3 ci4 fu4 zhen3 deng1 ji4 yi3 qu3 xiao1 , ru2 xu1 chong2 xin1 yu4 yue1 qing3 sui2 shi2 gao4 su4 wo3 .",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_only/cancel_done.wav",
+        "audio_duration_s": 4.377,
+        "total_ms": 597.22,
+        "tacotron2_ms": 337.77,
+        "vocoder_ms": 254.53,
+        "rtf": 0.1364,
+        "hit_max_steps": false,
+        "wav_valid": true
+      },
+      {
+        "sample_id": "cancel_done",
+        "category": "cancel_done",
+        "action": "done",
+        "mode": "tn_prosody",
+        "raw_text": "好的，本次复诊登记已取消，如需重新预约请随时告诉我。",
+        "normalized_text": "好的,本次复诊登记已取消,如需重新预约请随时告诉我.",
+        "segment_count": 3,
+        "segments": [
+          {
+            "text": "好的,",
+            "pinyin": "hao3 #1 de5 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "本次复诊登记已取消,",
+            "pinyin": "ben3 ci4 #1 fu4 zhen3 #1 deng1 ji4 #1 yi3 #1 qu3 xiao1 #3 ,",
+            "pause_after_ms": 160
+          },
+          {
+            "text": "如需重新预约请随时告诉我.",
+            "pinyin": "ru2 xu1 #1 chong2 xin1 #1 yu4 yue1 #1 qing3 #1 sui2 shi2 #1 gao4 su4 #1 wo3 #3 .",
+            "pause_after_ms": 0
+          }
+        ],
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/tn_prosody/cancel_done.wav",
+        "audio_duration_s": 6.1366,
+        "total_ms": 868.11,
+        "tacotron2_ms": 457.35,
+        "vocoder_ms": 403.06,
+        "rtf": 0.1415,
+        "hit_max_steps": false,
+        "wav_valid": true
+      }
+    ],
+    "pause_sweep": [
+      {
+        "sample_id": "multi_field_confirm",
+        "pause_ms": 200,
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/pause_sweep/multi_field_confirm_p200.wav",
+        "audio_duration_s": 5.1717,
+        "total_ms": 662.66,
+        "hit_max_steps": false
+      },
+      {
+        "sample_id": "multi_field_confirm",
+        "pause_ms": 260,
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/pause_sweep/multi_field_confirm_p260.wav",
+        "audio_duration_s": 5.2917,
+        "total_ms": 687.62,
+        "hit_max_steps": false
+      },
+      {
+        "sample_id": "multi_field_confirm",
+        "pause_ms": 350,
+        "wav_path": "/Users/mac/Desktop/DEVELOP/code_brandnewme/speech-pro/e_module/outputs/ablation/pause_sweep/multi_field_confirm_p350.wav",
+        "audio_duration_s": 5.4717,
+        "total_ms": 779.92,
+        "hit_max_steps": false
+      }
+    ]
+  },
+  "speed_compression": {
+    "cold_start_fp32_gl50": {
+      "config_name": "cold_start_fp32_gl50",
+      "cold_load_ms": 321.27,
+      "warmup_ms": 0.0,
+      "model_size_mb": 108.41,
+      "quantized": false,
+      "quantize_mode": "none",
+      "quant_engine": "none",
+      "vocoder_mode": "griffin_lim",
+      "gl_iters": 50,
+      "total_ms_stats": {
+        "median": 1029.53,
+        "p90": 1794.02,
+        "min": 670.79,
+        "max": 1985.14
+      },
+      "tacotron2_ms_stats": {
+        "median": 369.23,
+        "p90": 655.53,
+        "min": 134.3,
+        "max": 727.1
+      },
+      "vocoder_ms_stats": {
+        "median": 652.74,
+        "p90": 1128.37,
+        "min": 212.91,
+        "max": 1247.28
+      },
+      "rtf_median": 0.2131,
+      "rtf_p90": 0.3467,
+      "any_hit_max_steps": false,
+      "all_wav_valid": true,
+      "samples": [
+        {
+          "sample_id": "short_prompt",
+          "audio_duration_s": 1.7647,
+          "total_ms": 670.79,
+          "tacotron2_ms": 134.3,
+          "vocoder_ms": 212.91,
+          "rtf": 0.3801,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "multi_field_confirm",
+          "audio_duration_s": 5.2917,
+          "total_ms": 1029.53,
+          "tacotron2_ms": 369.23,
+          "vocoder_ms": 652.74,
+          "rtf": 0.1946,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "long_faq",
+          "audio_duration_s": 9.3152,
+          "total_ms": 1985.14,
+          "tacotron2_ms": 727.1,
+          "vocoder_ms": 1247.28,
+          "rtf": 0.2131,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        }
+      ]
+    },
+    "warm_fp32_gl50": {
+      "config_name": "warm_fp32_gl50",
+      "cold_load_ms": 321.27,
+      "warmup_ms": 167.69,
+      "model_size_mb": 108.41,
+      "quantized": false,
+      "quantize_mode": "none",
+      "quant_engine": "none",
+      "vocoder_mode": "griffin_lim",
+      "gl_iters": 50,
+      "total_ms_stats": {
+        "median": 1018.4,
+        "p90": 1682.51,
+        "min": 344.56,
+        "max": 1848.54
+      },
+      "tacotron2_ms_stats": {
+        "median": 365.6,
+        "p90": 619.22,
+        "min": 132.89,
+        "max": 682.62
+      },
+      "vocoder_ms_stats": {
+        "median": 646.05,
+        "p90": 1053.01,
+        "min": 207.44,
+        "max": 1154.75
+      },
+      "rtf_median": 0.1953,
+      "rtf_p90": 0.1978,
+      "any_hit_max_steps": false,
+      "all_wav_valid": true,
+      "samples": [
+        {
+          "sample_id": "short_prompt",
+          "audio_duration_s": 1.7647,
+          "total_ms": 344.56,
+          "tacotron2_ms": 132.89,
+          "vocoder_ms": 207.44,
+          "rtf": 0.1953,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "multi_field_confirm",
+          "audio_duration_s": 5.2917,
+          "total_ms": 1018.4,
+          "tacotron2_ms": 365.6,
+          "vocoder_ms": 646.05,
+          "rtf": 0.1925,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "long_faq",
+          "audio_duration_s": 9.3152,
+          "total_ms": 1848.54,
+          "tacotron2_ms": 682.62,
+          "vocoder_ms": 1154.75,
+          "rtf": 0.1984,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        }
+      ]
+    },
+    "warm_fp32_fastgl25": {
+      "config_name": "warm_fp32_fastgl25",
+      "cold_load_ms": 495.49,
+      "warmup_ms": 101.55,
+      "model_size_mb": 108.41,
+      "quantized": false,
+      "quantize_mode": "none",
+      "quant_engine": "none",
+      "vocoder_mode": "fast_griffin_lim",
+      "gl_iters": 25,
+      "total_ms_stats": {
+        "median": 687.78,
+        "p90": 1097.54,
+        "min": 227.57,
+        "max": 1199.98
+      },
+      "tacotron2_ms_stats": {
+        "median": 356.03,
+        "p90": 599.05,
+        "min": 124.02,
+        "max": 659.81
+      },
+      "vocoder_ms_stats": {
+        "median": 324.78,
+        "p90": 488.63,
+        "min": 101.19,
+        "max": 529.59
+      },
+      "rtf_median": 0.129,
+      "rtf_p90": 0.1298,
+      "any_hit_max_steps": false,
+      "all_wav_valid": true,
+      "samples": [
+        {
+          "sample_id": "short_prompt",
+          "audio_duration_s": 1.7647,
+          "total_ms": 227.57,
+          "tacotron2_ms": 124.02,
+          "vocoder_ms": 101.19,
+          "rtf": 0.129,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "multi_field_confirm",
+          "audio_duration_s": 5.2917,
+          "total_ms": 687.78,
+          "tacotron2_ms": 356.03,
+          "vocoder_ms": 324.78,
+          "rtf": 0.13,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "long_faq",
+          "audio_duration_s": 9.3152,
+          "total_ms": 1199.98,
+          "tacotron2_ms": 659.81,
+          "vocoder_ms": 529.59,
+          "rtf": 0.1288,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        }
+      ]
+    },
+    "warm_int8_naive_fastgl25": {
+      "config_name": "warm_int8_naive_fastgl25",
+      "cold_load_ms": 371.43,
+      "warmup_ms": 122.33,
+      "model_size_mb": 102.05,
+      "quantized": true,
+      "quantize_mode": "naive_linear_lstm",
+      "quant_engine": "qnnpack",
+      "vocoder_mode": "fast_griffin_lim",
+      "gl_iters": 25,
+      "total_ms_stats": {
+        "median": 742.84,
+        "p90": 1242.18,
+        "min": 263.07,
+        "max": 1367.01
+      },
+      "tacotron2_ms_stats": {
+        "median": 430.1,
+        "p90": 760.64,
+        "min": 158.59,
+        "max": 843.28
+      },
+      "vocoder_ms_stats": {
+        "median": 305.96,
+        "p90": 471.46,
+        "min": 101.8,
+        "max": 512.84
+      },
+      "rtf_median": 0.1468,
+      "rtf_p90": 0.1486,
+      "any_hit_max_steps": false,
+      "all_wav_valid": true,
+      "samples": [
+        {
+          "sample_id": "short_prompt",
+          "audio_duration_s": 1.7647,
+          "total_ms": 263.07,
+          "tacotron2_ms": 158.59,
+          "vocoder_ms": 101.8,
+          "rtf": 0.1491,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "multi_field_confirm",
+          "audio_duration_s": 5.2569,
+          "total_ms": 742.84,
+          "tacotron2_ms": 430.1,
+          "vocoder_ms": 305.96,
+          "rtf": 0.1413,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "long_faq",
+          "audio_duration_s": 9.3152,
+          "total_ms": 1367.01,
+          "tacotron2_ms": 843.28,
+          "vocoder_ms": 512.84,
+          "rtf": 0.1468,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        }
+      ]
+    },
+    "warm_int8_lstm_converted_fastgl25": {
+      "config_name": "warm_int8_lstm_converted_fastgl25",
+      "cold_load_ms": 681.7,
+      "warmup_ms": 117.31,
+      "model_size_mb": 52.99,
+      "quantized": true,
+      "quantize_mode": "lstm_converted",
+      "quant_engine": "qnnpack",
+      "vocoder_mode": "fast_griffin_lim",
+      "gl_iters": 25,
+      "total_ms_stats": {
+        "median": 533.25,
+        "p90": 895.64,
+        "min": 197.16,
+        "max": 986.24
+      },
+      "tacotron2_ms_stats": {
+        "median": 313.7,
+        "p90": 529.58,
+        "min": 116.9,
+        "max": 583.55
+      },
+      "vocoder_ms_stats": {
+        "median": 213.66,
+        "p90": 357.52,
+        "min": 77.85,
+        "max": 393.49
+      },
+      "rtf_median": 0.1063,
+      "rtf_p90": 0.1106,
+      "any_hit_max_steps": false,
+      "all_wav_valid": true,
+      "samples": [
+        {
+          "sample_id": "short_prompt",
+          "audio_duration_s": 1.7647,
+          "total_ms": 197.16,
+          "tacotron2_ms": 116.9,
+          "vocoder_ms": 77.85,
+          "rtf": 0.1117,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "multi_field_confirm",
+          "audio_duration_s": 5.2569,
+          "total_ms": 533.25,
+          "tacotron2_ms": 313.7,
+          "vocoder_ms": 213.66,
+          "rtf": 0.1014,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "long_faq",
+          "audio_duration_s": 9.2804,
+          "total_ms": 986.24,
+          "tacotron2_ms": 583.55,
+          "vocoder_ms": 393.49,
+          "rtf": 0.1063,
+          "cache_hit": false,
+          "hit_max_steps": false,
+          "wav_valid": true
+        }
+      ]
+    },
+    "fixed_prompt_cache_hit": {
+      "config_name": "fixed_prompt_cache_hit",
+      "cold_load_ms": 495.49,
+      "warmup_ms": 0.0,
+      "model_size_mb": 108.41,
+      "quantized": false,
+      "quantize_mode": "none",
+      "quant_engine": "none",
+      "vocoder_mode": "fast_griffin_lim",
+      "gl_iters": 25,
+      "total_ms_stats": {
+        "median": 0.94,
+        "p90": 1.26,
+        "min": 0.89,
+        "max": 1.34
+      },
+      "tacotron2_ms_stats": {
+        "median": 0.0,
+        "p90": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "vocoder_ms_stats": {
+        "median": 0.0,
+        "p90": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "rtf_median": 0.0002,
+      "rtf_p90": 0.0004,
+      "any_hit_max_steps": false,
+      "all_wav_valid": true,
+      "samples": [
+        {
+          "sample_id": "short_prompt",
+          "audio_duration_s": 1.7647,
+          "total_ms": 0.94,
+          "tacotron2_ms": 0.0,
+          "vocoder_ms": 0.0,
+          "rtf": 0.0005,
+          "cache_hit": true,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "multi_field_confirm",
+          "audio_duration_s": 5.2917,
+          "total_ms": 0.89,
+          "tacotron2_ms": 0.0,
+          "vocoder_ms": 0.0,
+          "rtf": 0.0002,
+          "cache_hit": true,
+          "hit_max_steps": false,
+          "wav_valid": true
+        },
+        {
+          "sample_id": "long_faq",
+          "audio_duration_s": 9.3152,
+          "total_ms": 1.34,
+          "tacotron2_ms": 0.0,
+          "vocoder_ms": 0.0,
+          "rtf": 0.0001,
+          "cache_hit": true,
+          "hit_max_steps": false,
+          "wav_valid": true
+        }
+      ]
+    }
+  }
+}

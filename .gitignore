@@ -16,6 +16,15 @@ venv/
 语音信息处理综合实践/
 speech/
 
-# Generated WAV audio and experiment outputs
+# Generated WAV audio and intermediate experiment scratch directories (keep final JSON/JSONL & figures)
 *.wav
-e_module/outputs/
+e_module/outputs/ablation/
+e_module/outputs/alignments/
+e_module/outputs/baseline/
+e_module/outputs/benchmark_wavs/
+e_module/outputs/clear_speech_demo/
+e_module/outputs/exp2b_wavs/
+e_module/outputs/exp4_pipelined/
+e_module/outputs/mock_integration/
+e_module/outputs/prompt_cache/
+e_module/outputs/service_runtime/
