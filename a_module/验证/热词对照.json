@@ -1,0 +1,1102 @@
+{
+  "timestamp": "2026-11-26T19:48:01+08:00",
+  "platform": "Windows AMD64",
+  "model": "x-asr-160ms-streaming-zipformer-transducer-zh-en-int8-2026-06-05",
+  "noise_snr_db": -5,
+  "dev_weight_sweep": [
+    {
+      "weight": 0.0,
+      "cases": 8,
+      "cer": 0.632911,
+      "edit_count": 50,
+      "reference_chars": 79,
+      "target_slots_hit": 2,
+      "target_slots_total": 12,
+      "all_targets_hit_cases": 0,
+      "positive_cases": 6,
+      "spurious_control_cases": 0,
+      "control_cases": 2,
+      "median_rtf": 0.1976
+    },
+    {
+      "weight": 1.5,
+      "cases": 8,
+      "cer": 0.620253,
+      "edit_count": 49,
+      "reference_chars": 79,
+      "target_slots_hit": 2,
+      "target_slots_total": 12,
+      "all_targets_hit_cases": 0,
+      "positive_cases": 6,
+      "spurious_control_cases": 0,
+      "control_cases": 2,
+      "median_rtf": 0.1932
+    },
+    {
+      "weight": 3.0,
+      "cases": 8,
+      "cer": 0.620253,
+      "edit_count": 49,
+      "reference_chars": 79,
+      "target_slots_hit": 2,
+      "target_slots_total": 12,
+      "all_targets_hit_cases": 0,
+      "positive_cases": 6,
+      "spurious_control_cases": 0,
+      "control_cases": 2,
+      "median_rtf": 0.2002
+    }
+  ],
+  "hotword_weight": 1.5,
+  "split": "test",
+  "conditions": {
+    "clean": {
+      "summary": {
+        "beam": {
+          "cases": 20,
+          "cer": 0.023697,
+          "edit_count": 5,
+          "reference_chars": 211,
+          "target_slots_hit": 25,
+          "target_slots_total": 25,
+          "all_targets_hit_cases": 12,
+          "positive_cases": 12,
+          "spurious_control_cases": 1,
+          "control_cases": 8,
+          "median_rtf": 0.2327
+        },
+        "hotwords": {
+          "cases": 20,
+          "cer": 0.023697,
+          "edit_count": 5,
+          "reference_chars": 211,
+          "target_slots_hit": 25,
+          "target_slots_total": 25,
+          "all_targets_hit_cases": 12,
+          "positive_cases": 12,
+          "spurious_control_cases": 1,
+          "control_cases": 8,
+          "median_rtf": 0.2314
+        }
+      },
+      "results": [
+        {
+          "id": "test_01",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "我想预约神经内科下周二上午",
+          "targets": [
+            "神经内科",
+            "下周二",
+            "上午"
+          ],
+          "audio_ms": 5156.0,
+          "beam": {
+            "text": "我想预约神经内科下周二上午",
+            "edits": 0,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.228
+          },
+          "hotwords": {
+            "text": "我想预约神经内科下周二上午",
+            "edits": 0,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2247
+          }
+        },
+        {
+          "id": "test_02",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "想挂皮肤科本周六下午有号吗",
+          "targets": [
+            "皮肤科",
+            "本周六",
+            "下午"
+          ],
+          "audio_ms": 5051.75,
+          "beam": {
+            "text": "想挂皮肤科本周六下午有号码",
+            "edits": 1,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2175
+          },
+          "hotwords": {
+            "text": "想挂皮肤科本周六下午有号码",
+            "edits": 1,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.229
+          }
+        },
+        {
+          "id": "test_03",
+          "voice": "Microsoft Yaoyao",
+          "context": "department",
+          "reference": "我要复查请预约呼吸内科",
+          "targets": [
+            "呼吸内科"
+          ],
+          "audio_ms": 3398.25,
+          "beam": {
+            "text": "我要复查请预约呼吸内科",
+            "edits": 0,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2396
+          },
+          "hotwords": {
+            "text": "我要复查请预约呼吸内科",
+            "edits": 0,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2316
+          }
+        },
+        {
+          "id": "test_04",
+          "voice": "Microsoft Kangkang",
+          "context": "department",
+          "reference": "请帮我看看消化内科的号",
+          "targets": [
+            "消化内科"
+          ],
+          "audio_ms": 2725.19,
+          "beam": {
+            "text": "请帮我看看消化内科的好",
+            "edits": 1,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.3224
+          },
+          "hotwords": {
+            "text": "请帮我看看消化内科的好",
+            "edits": 1,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2804
+          }
+        },
+        {
+          "id": "test_05",
+          "voice": "Microsoft Kangkang",
+          "context": "date",
+          "reference": "如果有号就下周五下午",
+          "targets": [
+            "下周五",
+            "下午"
+          ],
+          "audio_ms": 3038.19,
+          "beam": {
+            "text": "如果有号就下周五下午",
+            "edits": 0,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2552
+          },
+          "hotwords": {
+            "text": "如果有号就下周五下午",
+            "edits": 0,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2575
+          }
+        },
+        {
+          "id": "test_06",
+          "voice": "Microsoft Yaoyao",
+          "context": "date",
+          "reference": "那就下周日上午吧",
+          "targets": [
+            "下周日",
+            "上午"
+          ],
+          "audio_ms": 2156.88,
+          "beam": {
+            "text": "那就下周日上午吧",
+            "edits": 0,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2366
+          },
+          "hotwords": {
+            "text": "那就下周日上午吧",
+            "edits": 0,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2384
+          }
+        },
+        {
+          "id": "test_07",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "安排一个骨科的号本周三下午",
+          "targets": [
+            "骨科",
+            "本周三",
+            "下午"
+          ],
+          "audio_ms": 5175.94,
+          "beam": {
+            "text": "安排一个骨科的号本周三下午",
+            "edits": 0,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2181
+          },
+          "hotwords": {
+            "text": "安排一个骨科的号本周三下午",
+            "edits": 0,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2214
+          }
+        },
+        {
+          "id": "test_08",
+          "voice": "Microsoft Kangkang",
+          "context": "department",
+          "reference": "我是想约个眼科的复诊",
+          "targets": [
+            "眼科"
+          ],
+          "audio_ms": 3053.5,
+          "beam": {
+            "text": "我是想约个眼科的复诊",
+            "edits": 0,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2716
+          },
+          "hotwords": {
+            "text": "我是想约个眼科的复诊",
+            "edits": 0,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2701
+          }
+        },
+        {
+          "id": "test_09",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "耳鼻喉科复诊我下周四上午有空",
+          "targets": [
+            "耳鼻喉科",
+            "下周四",
+            "上午"
+          ],
+          "audio_ms": 5244.88,
+          "beam": {
+            "text": "耳鼻喉科复诊我下周四上午有空",
+            "edits": 0,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2688
+          },
+          "hotwords": {
+            "text": "耳鼻喉科复诊我下周四上午有空",
+            "edits": 0,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2333
+          }
+        },
+        {
+          "id": "test_10",
+          "voice": "Microsoft Kangkang",
+          "context": "date",
+          "reference": "能不能改成本周二上午",
+          "targets": [
+            "本周二",
+            "上午"
+          ],
+          "audio_ms": 2904.38,
+          "beam": {
+            "text": "能不能改成本周二上午",
+            "edits": 0,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2408
+          },
+          "hotwords": {
+            "text": "能不能改成本周二上午",
+            "edits": 0,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2289
+          }
+        },
+        {
+          "id": "test_11",
+          "voice": "Microsoft Yaoyao",
+          "context": "department",
+          "reference": "口腔科现在能登记吗",
+          "targets": [
+            "口腔科"
+          ],
+          "audio_ms": 2486.5,
+          "beam": {
+            "text": "口腔科现在能登记吗",
+            "edits": 0,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2325
+          },
+          "hotwords": {
+            "text": "口腔科现在能登记吗",
+            "edits": 0,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2313
+          }
+        },
+        {
+          "id": "test_12",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "康复科再帮我约一次下周六下午",
+          "targets": [
+            "康复科",
+            "下周六",
+            "下午"
+          ],
+          "audio_ms": 6187.38,
+          "beam": {
+            "text": "康复科在帮我约一次下周六下午",
+            "edits": 1,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2262
+          },
+          "hotwords": {
+            "text": "康复科在帮我约一次下周六下午",
+            "edits": 1,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2246
+          }
+        },
+        {
+          "id": "test_13",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "先告诉我门诊大厅怎么走",
+          "targets": [],
+          "audio_ms": 3168.62,
+          "beam": {
+            "text": "先告诉我门诊大厅怎么走",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.224
+          },
+          "hotwords": {
+            "text": "先告诉我门诊大厅怎么走",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2183
+          }
+        },
+        {
+          "id": "test_14",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "候诊区可以买水吗",
+          "targets": [],
+          "audio_ms": 2464.19,
+          "beam": {
+            "text": "候诊区可以买水吗",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2385
+          },
+          "hotwords": {
+            "text": "候诊区可以买水吗",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.238
+          }
+        },
+        {
+          "id": "test_15",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "可以帮我打印报告吗",
+          "targets": [],
+          "audio_ms": 2315.25,
+          "beam": {
+            "text": "可以帮我打印报告吗",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2329
+          },
+          "hotwords": {
+            "text": "可以帮我打印报告吗",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2347
+          }
+        },
+        {
+          "id": "test_16",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "护士站就在电梯旁边",
+          "targets": [],
+          "audio_ms": 3143.44,
+          "beam": {
+            "text": "护士站就在电梯旁边",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2201
+          },
+          "hotwords": {
+            "text": "护士站就在电梯旁边",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.22
+          }
+        },
+        {
+          "id": "test_17",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "夏州路口要在哪儿下车",
+          "targets": [],
+          "audio_ms": 2971.31,
+          "beam": {
+            "text": "下周路口要在哪儿下车",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [
+              "下周"
+            ],
+            "rtf": 0.2238
+          },
+          "hotwords": {
+            "text": "下周路口要在哪儿下车",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [
+              "下周"
+            ],
+            "rtf": 0.2438
+          }
+        },
+        {
+          "id": "test_18",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "我把眼镜落在窗口那边了",
+          "targets": [],
+          "audio_ms": 3110.25,
+          "beam": {
+            "text": "我把眼镜落在窗口那边了",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2365
+          },
+          "hotwords": {
+            "text": "我把眼镜落在窗口那边了",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2239
+          }
+        },
+        {
+          "id": "test_19",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "先取消这次登记吧",
+          "targets": [],
+          "audio_ms": 2763.81,
+          "beam": {
+            "text": "先取消这次登记吧",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2316
+          },
+          "hotwords": {
+            "text": "先取消这次登记吧",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2213
+          }
+        },
+        {
+          "id": "test_20",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "医保卡放在我的包里",
+          "targets": [],
+          "audio_ms": 2310.12,
+          "beam": {
+            "text": "医保卡放在我的包里",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2305
+          },
+          "hotwords": {
+            "text": "医保卡放在我的包里",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2341
+          }
+        }
+      ]
+    },
+    "noise": {
+      "summary": {
+        "beam": {
+          "cases": 20,
+          "cer": 0.270142,
+          "edit_count": 57,
+          "reference_chars": 211,
+          "target_slots_hit": 13,
+          "target_slots_total": 25,
+          "all_targets_hit_cases": 2,
+          "positive_cases": 12,
+          "spurious_control_cases": 0,
+          "control_cases": 8,
+          "median_rtf": 0.2326
+        },
+        "hotwords": {
+          "cases": 20,
+          "cer": 0.270142,
+          "edit_count": 57,
+          "reference_chars": 211,
+          "target_slots_hit": 13,
+          "target_slots_total": 25,
+          "all_targets_hit_cases": 2,
+          "positive_cases": 12,
+          "spurious_control_cases": 0,
+          "control_cases": 8,
+          "median_rtf": 0.2331
+        }
+      },
+      "results": [
+        {
+          "id": "test_01",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "我想预约神经内科下周二上午",
+          "targets": [
+            "神经内科",
+            "下周二",
+            "上午"
+          ],
+          "audio_ms": 5156.0,
+          "beam": {
+            "text": "我想预约神经列车下周二上午",
+            "edits": 2,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2198
+          },
+          "hotwords": {
+            "text": "我想预约神经列车下周二上午",
+            "edits": 2,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2146
+          }
+        },
+        {
+          "id": "test_02",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "想挂皮肤科本周六下午有号吗",
+          "targets": [
+            "皮肤科",
+            "本周六",
+            "下午"
+          ],
+          "audio_ms": 5051.75,
+          "beam": {
+            "text": "讲话皮肤科本周六下午有号码",
+            "edits": 3,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2249
+          },
+          "hotwords": {
+            "text": "讲话皮肤科本周六下午有号码",
+            "edits": 3,
+            "target_hits": 3,
+            "spurious_hotwords": [],
+            "rtf": 0.2724
+          }
+        },
+        {
+          "id": "test_03",
+          "voice": "Microsoft Yaoyao",
+          "context": "department",
+          "reference": "我要复查请预约呼吸内科",
+          "targets": [
+            "呼吸内科"
+          ],
+          "audio_ms": 3398.25,
+          "beam": {
+            "text": "我要复查请预约 CT 六科",
+            "edits": 3,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2859
+          },
+          "hotwords": {
+            "text": "我要复查请预约 CT 六科",
+            "edits": 3,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2262
+          }
+        },
+        {
+          "id": "test_04",
+          "voice": "Microsoft Kangkang",
+          "context": "department",
+          "reference": "请帮我看看消化内科的号",
+          "targets": [
+            "消化内科"
+          ],
+          "audio_ms": 2725.19,
+          "beam": {
+            "text": "警方我看到消化内科的号",
+            "edits": 3,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2323
+          },
+          "hotwords": {
+            "text": "警方我看到消化内科的号",
+            "edits": 3,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2324
+          }
+        },
+        {
+          "id": "test_05",
+          "voice": "Microsoft Kangkang",
+          "context": "date",
+          "reference": "如果有号就下周五下午",
+          "targets": [
+            "下周五",
+            "下午"
+          ],
+          "audio_ms": 3038.19,
+          "beam": {
+            "text": "如果有炮就下中午下午",
+            "edits": 3,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2296
+          },
+          "hotwords": {
+            "text": "如果有炮就下中午下午",
+            "edits": 3,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2274
+          }
+        },
+        {
+          "id": "test_06",
+          "voice": "Microsoft Yaoyao",
+          "context": "date",
+          "reference": "那就下周日上午吧",
+          "targets": [
+            "下周日",
+            "上午"
+          ],
+          "audio_ms": 2156.88,
+          "beam": {
+            "text": "那就在公路上你吧",
+            "edits": 4,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2437
+          },
+          "hotwords": {
+            "text": "那就在公路上你吧",
+            "edits": 4,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2408
+          }
+        },
+        {
+          "id": "test_07",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "安排一个骨科的号本周三下午",
+          "targets": [
+            "骨科",
+            "本周三",
+            "下午"
+          ],
+          "audio_ms": 5175.94,
+          "beam": {
+            "text": "安排一个堵车的号很多三下午",
+            "edits": 4,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2172
+          },
+          "hotwords": {
+            "text": "安排一个堵车的号很多三下午",
+            "edits": 4,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2234
+          }
+        },
+        {
+          "id": "test_08",
+          "voice": "Microsoft Kangkang",
+          "context": "department",
+          "reference": "我是想约个眼科的复诊",
+          "targets": [
+            "眼科"
+          ],
+          "audio_ms": 3053.5,
+          "beam": {
+            "text": "我是想约在演说的富人",
+            "edits": 5,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2363
+          },
+          "hotwords": {
+            "text": "我是想约在演说的富人",
+            "edits": 5,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2338
+          }
+        },
+        {
+          "id": "test_09",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "耳鼻喉科复诊我下周四上午有空",
+          "targets": [
+            "耳鼻喉科",
+            "下周四",
+            "上午"
+          ],
+          "audio_ms": 5244.88,
+          "beam": {
+            "text": "耳鼻头部副本我下周四上午有空",
+            "edits": 4,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2155
+          },
+          "hotwords": {
+            "text": "耳鼻头部副本我下周四上午有空",
+            "edits": 4,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2131
+          }
+        },
+        {
+          "id": "test_10",
+          "voice": "Microsoft Kangkang",
+          "context": "date",
+          "reference": "能不能改成本周二上午",
+          "targets": [
+            "本周二",
+            "上午"
+          ],
+          "audio_ms": 2904.38,
+          "beam": {
+            "text": "能不能改成等周二上午",
+            "edits": 1,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.2329
+          },
+          "hotwords": {
+            "text": "能不能改成等周二上午",
+            "edits": 1,
+            "target_hits": 1,
+            "spurious_hotwords": [],
+            "rtf": 0.239
+          }
+        },
+        {
+          "id": "test_11",
+          "voice": "Microsoft Yaoyao",
+          "context": "department",
+          "reference": "口腔科现在能登记吗",
+          "targets": [
+            "口腔科"
+          ],
+          "audio_ms": 2486.5,
+          "beam": {
+            "text": "好像说现在能登记吗",
+            "edits": 3,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2361
+          },
+          "hotwords": {
+            "text": "好像说现在能登记吗",
+            "edits": 3,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.234
+          }
+        },
+        {
+          "id": "test_12",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "康复科再帮我约一次下周六下午",
+          "targets": [
+            "康复科",
+            "下周六",
+            "下午"
+          ],
+          "audio_ms": 6187.38,
+          "beam": {
+            "text": "仓库在帮我约一次下周六下午",
+            "edits": 4,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.2113
+          },
+          "hotwords": {
+            "text": "仓库在帮我约一次下周六下午",
+            "edits": 4,
+            "target_hits": 2,
+            "spurious_hotwords": [],
+            "rtf": 0.212
+          }
+        },
+        {
+          "id": "test_13",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "先告诉我门诊大厅怎么走",
+          "targets": [],
+          "audio_ms": 3168.62,
+          "beam": {
+            "text": "先告诉我们总大厅怎么走",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2266
+          },
+          "hotwords": {
+            "text": "先告诉我们总大厅怎么走",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2476
+          }
+        },
+        {
+          "id": "test_14",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "候诊区可以买水吗",
+          "targets": [],
+          "audio_ms": 2464.19,
+          "beam": {
+            "text": "买水吗",
+            "edits": 5,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2465
+          },
+          "hotwords": {
+            "text": "买水吗",
+            "edits": 5,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2347
+          }
+        },
+        {
+          "id": "test_15",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "可以帮我打印报告吗",
+          "targets": [],
+          "audio_ms": 2315.25,
+          "beam": {
+            "text": "所以帮我打印报告码",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2346
+          },
+          "hotwords": {
+            "text": "所以帮我打印报告码",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2362
+          }
+        },
+        {
+          "id": "test_16",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "护士站就在电梯旁边",
+          "targets": [],
+          "audio_ms": 3143.44,
+          "beam": {
+            "text": "电梯旁边",
+            "edits": 5,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2315
+          },
+          "hotwords": {
+            "text": "电梯旁边",
+            "edits": 5,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2276
+          }
+        },
+        {
+          "id": "test_17",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "夏州路口要在哪儿下车",
+          "targets": [],
+          "audio_ms": 2971.31,
+          "beam": {
+            "text": "下边路口要在哪儿下车",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2258
+          },
+          "hotwords": {
+            "text": "下边路口要在哪儿下车",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2311
+          }
+        },
+        {
+          "id": "test_18",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "我把眼镜落在窗口那边了",
+          "targets": [],
+          "audio_ms": 3110.25,
+          "beam": {
+            "text": "我把眼镜落在窗口那边了",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2352
+          },
+          "hotwords": {
+            "text": "我把眼镜落在窗口那边了",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2366
+          }
+        },
+        {
+          "id": "test_19",
+          "voice": "Microsoft Kangkang",
+          "context": "registration",
+          "reference": "先取消这次登记吧",
+          "targets": [],
+          "audio_ms": 2763.81,
+          "beam": {
+            "text": "先取消这次登记吧",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2397
+          },
+          "hotwords": {
+            "text": "先取消这次登记吧",
+            "edits": 0,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2294
+          }
+        },
+        {
+          "id": "test_20",
+          "voice": "Microsoft Yaoyao",
+          "context": "registration",
+          "reference": "医保卡放在我的包里",
+          "targets": [],
+          "audio_ms": 2310.12,
+          "beam": {
+            "text": "樱桃卡放在我的包里",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2344
+          },
+          "hotwords": {
+            "text": "樱桃卡放在我的包里",
+            "edits": 2,
+            "target_hits": 0,
+            "spurious_hotwords": [],
+            "rtf": 0.2422
+          }
+        }
+      ]
+    }
+  },
+  "previous_wenet_same_clean_audio": {
+    "beam": {
+      "cases": 20,
+      "cer": 0.151659,
+      "edit_count": 32,
+      "reference_chars": 211,
+      "target_slots_hit": 16,
+      "target_slots_total": 25,
+      "all_targets_hit_cases": 5,
+      "positive_cases": 12,
+      "spurious_control_cases": 1,
+      "control_cases": 8
+    },
+    "hotwords": {
+      "cases": 20,
+      "cer": 0.127962,
+      "edit_count": 27,
+      "reference_chars": 211,
+      "target_slots_hit": 21,
+      "target_slots_total": 25,
+      "all_targets_hit_cases": 9,
+      "positive_cases": 12,
+      "spurious_control_cases": 1,
+      "control_cases": 8
+    }
+  }
+}

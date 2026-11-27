@@ -10,14 +10,14 @@
 
 | 模块 | 核心职责 | 输出事件 | 对应工程目录（推荐） |
 | :--- | :--- | :--- | :--- |
-| **A** | 麦克风采集、VAD、WeNet 流式识别、声纹匹配 | `ASR_TICK`、`ASR_FINAL`、`PROFILE_SUGGESTION` | `a_module/` |
+| **A** | 麦克风采集、音量活动判断、Zipformer 流式识别、CAM++ 声纹匹配 | `ASR_TICK`、`ASR_FINAL`、`PROFILE_SUGGESTION` | `a_module/` |
 | **B** | 自适应语音端点检测 | `TURN_STOP` | `b_module/` |
 | **C** | 口语理解、字段抽取、本地单轮 FAQ | `NLU_RESULT` | `c_module/` |
 | **D** | 多轮对话管理、历史继承、SQLite 登记 | `TURN_CONTEXT`、`REPLY_REQUEST` | `d_module/` |
 | **E** | 离线 Tacotron2 TTS、Clear Speech 优化、扬声器播报与半双工门控 | `LISTEN_START`、`PLAYBACK_RESULT` | `e_module/`（已就绪） |
 
 **全组三条核心边界**：
-1. **端点控制权归 B**：A 关闭 WeNet 原生自动端点截断，由 B 发 `TURN_STOP` 给 A；每轮只产一次 `ASR_FINAL`。
+1. **端点控制权归 B**：A 关闭识别器的自动端点截断，由 B 发 `TURN_STOP` 给 A；每轮只产一次 `ASR_FINAL`。
 2. **听说分时归 E**：E 收到 `REPLY_REQUEST` 后保持麦克风关闭；播报全部完成后先确认播放器停止，回传 `PLAYBACK_RESULT` 给 D；当且仅当**上一条音频已播完且新轮次 `TURN_CONTEXT` 已就绪**时，E 清空播报期残留音频缓冲并仅发一次 `LISTEN_START`。
 3. **字段与异常统一**：D 在 `TURN_CONTEXT` 统一发送 `expected_slots` 数组（单槽位时自动派生 `expected_slot`，否则为 `null`）；异常路径统一约定为 `no_input` / `error` / `cancel`。
 
@@ -80,6 +80,8 @@ export SPEECH_TACOTRON2_CKPT=$SPEECH_TACOTRON2_DIR/logs/checkpoint_latest.pt
 ---
 
 ## 5. 快速安装与验证命令
+
+A 模块的安装、模型下载、演示和接口说明见[模块 A README](a_module/README.md)。三页汇报方案及配图在[第一阶段汇报材料](a_module/模块一第一阶段PPT汇报材料/)中。
 
 ```bash
 # 安装 E 模块依赖
