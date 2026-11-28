@@ -1,0 +1,21 @@
+# 离线复诊登记助手 - 全组整机联调依赖（Mac arm64 / 64-bit Raspberry Pi 通用）
+# 兼容 Python 3.10–3.12（避免硬锁单一 torch 小版本造成跨平台冲突）
+
+torch>=2.0.0
+numpy>=1.23.0
+scipy>=1.10.0
+librosa>=0.10.0
+pypinyin>=0.49.0
+Unidecode>=1.3.0
+inflect>=7.0.0
+jieba>=0.42.1
+pytest>=7.4.0
+
+# A 模块（流式 Zipformer + CAM++ + 麦克风采音）
+sherpa-onnx>=1.10.0
+onnxruntime>=1.18.0
+soundfile>=0.12.0
+sounddevice>=0.4.6
+
+# 本地离线小语言模型（Qwen2.5-0.5B-Instruct GGUF Q4_K_M）
+llama-cpp-python>=0.2.90

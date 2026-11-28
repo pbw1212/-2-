@@ -29,18 +29,18 @@
 
 ```text
 .
-├── a_module/                      # 模块 A：流式 ASR 与声纹识别
-├── b_module/                      # 模块 B：自适应端点检测
-├── c_module/                      # 模块 C：口语理解与 FAQ 问答
-├── d_module/                      # 模块 D：多轮对话管理与 SQLite 登记
-├── e_module/                      # 模块 E：离线 TTS、门控服务与实验评测（当前已合入）
+├── a_module/                      # 模块 A：流式 ASR（Zipformer）与声纹识别（CAM++）
+├── b_module/                      # 模块 B：自适应语音端点检测（VAD/Text/Question + A 桥接）
+├── c_module/                      # 模块 C：口语理解与 26 条本地 FAQ（BM25 / TF-IDF）
+├── d_module/                      # 模块 D：多轮对话管理、状态继承与 SQLite 登记
+├── e_module/                      # 模块 E：离线 Tacotron2 INT8 TTS、Clear Speech 与半双工门控
 │   ├── models/                    # 轻量 SyllableBiGRUCRF 韵律预测权重（~2 MB）
 │   ├── outputs/                   # 最终评测 JSON/JSONL 报告与实验对比图（outputs/figures/）
-│   └── tests/                     # E 模块单元测试（25 项）
+│   └── tests/                     # E 模块单元测试
 ├── docs/                          # 全部项目文档（全组联调接口规范 + 各模块交付方案）
 │   ├── interface_spec_v1.md       # 第一版冻结联调接口规范
 │   └── *.docx                     # 全组联调总方案与 A~E 模块工程实施方案
-└── integration/                   # 全组联调主控/消息总线入口（后续合入）
+└── integration/                   # 全组联调总控（A+B+C+D+E + 本地离线 Qwen2.5-0.5B-Instruct）
 ```
 
 ---
@@ -79,22 +79,32 @@ export SPEECH_TACOTRON2_CKPT=$SPEECH_TACOTRON2_DIR/logs/checkpoint_latest.pt
 
 ---
 
-## 5. 快速安装与验证命令
+## 5. 全组整机联调与各模块验证命令
 
-A 模块的安装、模型下载、演示和接口说明见[模块 A README](a_module/README.md)。三页汇报方案及配图在[第一阶段汇报材料](a_module/模块一第一阶段PPT汇报材料/)中。
+A 模块的模型说明与演示见 [a_module/README.md](a_module/README.md)，B/C/D/E 分别位于各自模块目录。
 
 ```bash
-# 安装 E 模块依赖
-pip install -r e_module/requirements.txt
+# 0. 安装整机联调依赖与离线模型权重（均置于 .gitignore 忽略目录）
+pip install -r e_module/requirements.txt -r requirements-integration.txt
+python a_module/fetch_models.py          # 下载 Zipformer + CAM++ ONNX 权重
+python integration/fetch_llm.py          # 下载 Qwen2.5-0.5B-Instruct Q4_K_M GGUF 权重
 
-# 1. 运行 E 模块 25 项单元测试（无需外部权重也可全量通过前端与状态机测试）
-pytest e_module/tests -v
+# 1. 运行全组整机实时麦克风闭环（A + B + C + D + E + 本地 Qwen2.5-0.5B）
+python -m integration --mode mic --identify --llm local --tts real
 
-# 2. 运行含真实 Tacotron2 + EC-Viterbi + Clear Speech + INT8 的 6 大联调模拟场景
+# 2. 运行离线文字交互 / 预录 WAV 闭环（示例：关闭真实外放以便自动化校验）
+python -m integration --mode text --llm local --tts real --player auto
+python -m integration --mode wav --wavs sample1.wav sample2.wav --identify --llm local --tts real
+
+# 3. 各模块与整机端到端回归测试
+pytest -p no:cacheprovider e_module/tests b_module/tests integration/tests -v
+PYTHONPATH="d_module/02_D源代码" python -m unittest discover -s "d_module/02_D源代码/tests" -v
+python -m c_module && python -m c_module --retriever bm25 && python -m c_module.evaluate_faq
+python a_module/verify_local.py
+
+# 4. E 模块离线客观评测与模拟 6 场景联调
 python e_module/run_mock_integration.py
-
-# 3. 复现全套客观量化指标（DTW-MCD / Attention 稳定性 / Clear Speech / Pipelined TTFA）
 python e_module/eval_objective.py
 ```
 
-更完整的 E 模块结构说明、实验细节及树莓派 64-bit 部署步骤请查阅 [`e_module/README.md`](e_module/README.md)；最终评测 JSON/JSONL 报告与对比图位于 [`e_module/outputs/`](e_module/outputs/)，本地重跑产生的中间音频与缓存默认写入 `.gitignore` 忽略的子目录。
+更完整的 E 模块结构说明、实验细节及树莓派 64-bit 部署步骤请查阅 [e_module/README.md](e_module/README.md)；最终评测 JSON/JSONL 报告与对比图位于 [e_module/outputs/](e_module/outputs/)。

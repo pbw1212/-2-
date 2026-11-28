@@ -2,20 +2,51 @@
   "department": {
     "康复科": "rehab",
     "康复医学科": "rehab",
-    "心内科": "cardiology",
-    "心血管内科": "cardiology",
-    "骨科": "orthopedics"
+    "康复门诊": "rehab",
+    "康复": "rehab",
+    "骨科": "ortho",
+    "骨外科": "ortho",
+    "关节外科": "ortho",
+    "心内科": "cardio",
+    "心血管内科": "cardio",
+    "心脏内科": "cardio",
+    "神经内科": "neuro",
+    "神内": "neuro",
+    "中医科": "tcm",
+    "中医": "tcm",
+    "眼科": "ophtha",
+    "眼病": "ophtha",
+    "口腔科": "dental",
+    "口腔": "dental",
+    "皮肤科": "derm",
+    "皮肤": "derm"
   },
   "doctor": {
-    "张医生": "doctor_zhang",
-    "张大夫": "doctor_zhang",
-    "李医生": "doctor_li",
-    "李大夫": "doctor_li"
+    "张医生": "d_rehab_zhang",
+    "张大夫": "d_rehab_zhang",
+    "张主任": "d_rehab_zhang",
+    "张建国": "d_rehab_zhang",
+    "李医生": "d_rehab_li",
+    "李大夫": "d_rehab_li",
+    "李秀兰": "d_rehab_li",
+    "王医生": "d_ortho_wang",
+    "王大夫": "d_ortho_wang",
+    "王强": "d_ortho_wang",
+    "陈医生": "d_cardio_chen",
+    "陈大夫": "d_cardio_chen",
+    "陈芳": "d_cardio_chen"
   },
   "period": {
     "早上": "morning",
     "上午": "morning",
+    "早晨": "morning",
+    "一早": "morning",
+    "早间": "morning",
     "下午": "afternoon",
-    "午后": "afternoon"
+    "午后": "afternoon",
+    "晚上": "evening",
+    "傍晚": "evening",
+    "夜里": "evening",
+    "晚间": "evening"
   }
 }

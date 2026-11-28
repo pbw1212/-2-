@@ -168,3 +168,20 @@ def test_unknown_expression_fallback_recorded():
 def test_empty_input_raises():
     with pytest.raises(ValueError):
         process_text("   ", mode="tn_prosody")
+
+
+def test_d_confirm_actions_and_reg_id_normalization():
+    norm, rules, _ = normalize_text("已为您登记：康复科张医生，12月4日下午。登记编号 REG-0001。")
+    assert "reg_id" in rules
+    assert "reg" not in norm.lower()
+    assert "零零零一" in norm
+
+    res = process_text(
+        "为您登记复诊：康复科张医生，12月4日下午，对吗？",
+        mode="tn_psp_ec",
+        action="restate_confirm",
+        pause_ms=260,
+    )
+    assert any("康复科张医生" in s.text and s.pause_after_ms == 260 for s in res.segments)
+    assert res.segments[-1].text.startswith("对吗")
+    assert res.segments[-1].pause_after_ms == 0

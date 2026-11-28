@@ -99,7 +99,8 @@ class AProtocolTranslator:
 
     # ---- 主翻译
     def observe(self, event: Mapping[str, Any], turn_id: int,
-                expect_a_turn: str | None = None) -> List[Dict[str, Any]]:
+                expect_a_turn: str | None = None,
+                *, stop_reason: str | None = None) -> List[Dict[str, Any]]:
         """把一条 A 事件翻译成零条或多条组协议事件。"""
         a_turn = event.get("turn_id")
         if expect_a_turn is not None and a_turn is not None and a_turn != expect_a_turn:
@@ -114,7 +115,7 @@ class AProtocolTranslator:
             self.text_changed_at_ms = float(event.get("audio_ms") or 0.0)
             return []
         if kind == "final":
-            return [self._final(turn_id, event)]
+            return [self._final(turn_id, event, stop_reason=stop_reason)]
         if kind == "speaker":
             return self._speaker(turn_id, event)
         if kind in ("started", "wake", "closed", "ready"):
@@ -135,17 +136,29 @@ class AProtocolTranslator:
         }
         return protocol.make_event("ASR_TICK", self.session_id, turn_id, payload)
 
-    def _final(self, turn_id: int, event: Mapping[str, Any]) -> Dict[str, Any]:
-        a_status = str(event.get("status") or "")
-        status = {"ok": "ok", "no_text": "no_input"}.get(a_status, "error")
+    def _final(self, turn_id: int, event: Mapping[str, Any],
+               *, stop_reason: str | None = None) -> Dict[str, Any]:
+        if stop_reason == "timeout":
+            status = "error"
+            final_text = None
+            err_code = "endpoint_timeout"
+        elif stop_reason == "no_speech":
+            status = "no_input"
+            final_text = None
+            err_code = None
+        else:
+            a_status = str(event.get("status") or "")
+            status = {"ok": "ok", "no_text": "no_input"}.get(a_status, "error")
+            final_text = str(event.get("text")) if event.get("text") else None
+            err_code = f"asr_final_status:{a_status or 'unknown'}" if status == "error" else None
         payload: Dict[str, Any] = {
             "status": status,
-            "final_text": (str(event.get("text")) if event.get("text") else None),
+            "final_text": final_text,
             "start_audio_ms": round(self.start_audio_ms, 2),
             "end_audio_ms": round(float(event.get("audio_ms") or self.last_audio_ms), 2),
         }
-        if status == "error":
-            payload["error_code"] = f"asr_final_status:{a_status or 'unknown'}"
+        if err_code is not None:
+            payload["error_code"] = err_code
         return protocol.make_event("ASR_FINAL", self.session_id, turn_id, payload)
 
     def _speaker(self, turn_id: int, event: Mapping[str, Any]) -> List[Dict[str, Any]]:
@@ -183,6 +196,7 @@ class ABridge:
     sample_rate: int = A_SAMPLE_RATE
     frame_ms: float = A_FRAME_MS
     _a_turn: str | None = field(default=None, init=False, repr=False)
+    _last_identify: bool = field(default=False, init=False, repr=False)
 
     def __post_init__(self) -> None:
         self.translator = AProtocolTranslator(self.session_id)
@@ -257,6 +271,7 @@ class ABridge:
         self.open()
         a_turn = self.translator.map_turn_id(turn_id)
         self._a_turn = a_turn
+        self._last_identify = bool(identify)
         self.translator.reset()
         self.translator.text = ""
         self.translator.text_changed_at_ms = None
@@ -292,24 +307,35 @@ class ABridge:
             if event.get("type") == "audio":
                 return events
 
-    def finish_turn(self, turn_id: int, *, speaker_timeout_s: float = 0.5) -> List[Dict[str, Any]]:
+    def finish_turn(
+        self,
+        turn_id: int,
+        *,
+        speaker_timeout_s: float | None = None,
+        stop_reason: str | None = None,
+    ) -> List[Dict[str, Any]]:
         """结束本轮，返回 ASR_FINAL（若有声纹再附带 PROFILE_SUGGESTION）。"""
         if self._process is None:
             raise ABridgeError("A 尚未启动")
+        timeout_s = (
+            float(speaker_timeout_s)
+            if speaker_timeout_s is not None
+            else (2.5 if self._last_identify else 0.02)
+        )
         self._send({"op": "finish", "turn_id": self._a_turn})
         events: List[Dict[str, Any]] = []
         while True:
             event = self._next_event(self.event_timeout_s)
-            events.extend(self.translator.observe(event, turn_id, self._a_turn))
+            events.extend(self.translator.observe(event, turn_id, self._a_turn, stop_reason=stop_reason))
             if event.get("type") == "final":
                 break
-        # speaker 事件紧随 final；它可缺省，不能无限等
+        # speaker 事件紧随 final；未开启 identify 时仅短等待排空，开启后等待声纹匹配结果
         while True:
             try:
-                event = self._next_event(speaker_timeout_s)
+                event = self._next_event(timeout_s)
             except ABridgeError:
                 break
-            events.extend(self.translator.observe(event, turn_id, self._a_turn))
+            events.extend(self.translator.observe(event, turn_id, self._a_turn, stop_reason=stop_reason))
             if event.get("type") == "speaker":
                 break
         return events
@@ -445,7 +471,8 @@ def run_ab_loop(
                     break
             if stop is not None:
                 break
-        final_events = bridge.finish_turn(1)
+        stop_reason = stop.reason if stop is not None else None
+        final_events = bridge.finish_turn(1, stop_reason=stop_reason)
         events.extend(final_events)
     finally:
         if owns_bridge:

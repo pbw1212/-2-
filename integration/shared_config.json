@@ -1,0 +1,29 @@
+{
+  "departments": [
+    {"id": "rehab", "name": "康复科", "aliases": ["康复", "康复医学科", "康复门诊"]},
+    {"id": "ortho", "name": "骨科", "aliases": ["骨外科", "关节外科"]},
+    {"id": "cardio", "name": "心内科", "aliases": ["心血管内科", "心脏内科"]},
+    {"id": "neuro", "name": "神经内科", "aliases": ["神内"]},
+    {"id": "tcm", "name": "中医科", "aliases": ["中医"]},
+    {"id": "ophtha", "name": "眼科", "aliases": ["眼病"]},
+    {"id": "dental", "name": "口腔科", "aliases": ["口腔"]},
+    {"id": "derm", "name": "皮肤科", "aliases": ["皮肤"]}
+  ],
+  "doctors": [
+    {"id": "d_rehab_zhang", "name": "张医生", "department": "rehab", "aliases": ["张建国", "张大夫", "张主任"]},
+    {"id": "d_rehab_li", "name": "李医生", "department": "rehab", "aliases": ["李秀兰", "李大夫"]},
+    {"id": "d_ortho_wang", "name": "王医生", "department": "ortho", "aliases": ["王强", "王大夫"]},
+    {"id": "d_cardio_chen", "name": "陈医生", "department": "cardio", "aliases": ["陈芳", "陈大夫"]}
+  ],
+  "periods": {
+    "morning": {"name": "上午", "aliases": ["上午", "早上", "早晨", "一早", "早间"]},
+    "afternoon": {"name": "下午", "aliases": ["下午", "午后"]},
+    "evening": {"name": "晚上", "aliases": ["晚上", "傍晚", "夜里", "晚间"]}
+  },
+  "profiles": [
+    {"profile_id": "p001", "display_name": "王秀英", "last_department": "rehab", "last_doctor": "d_rehab_zhang", "visits": 3},
+    {"profile_id": "p002", "display_name": "刘志强", "last_department": "ortho", "last_doctor": "d_ortho_wang", "visits": 2},
+    {"profile_id": "p003", "display_name": "赵桂兰", "last_department": "cardio", "last_doctor": "d_cardio_chen", "visits": 4},
+    {"profile_id": "p004", "display_name": "孙德明", "last_department": "rehab", "last_doctor": "d_rehab_li", "visits": 1}
+  ]
+}

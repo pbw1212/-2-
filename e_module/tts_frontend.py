@@ -14,6 +14,7 @@ from e_module.config import DEFAULT_PAUSE_MS, DEFAULT_SHORT_PAUSE_MS
 jieba.setLogLevel(20)
 
 VALID_MODES = ("baseline_raw", "basic_pinyin", "tn_only", "tn_prosody", "tn_psp_ec")
+CONFIRM_ACTIONS = frozenset({"confirm", "restate_confirm", "faq_resume_confirm", "retry_save"})
 
 _CLINIC_DEPT_DOC_RE = re.compile(
     r"(?:康复科|骨科|心内科|神经内科|呼吸科|消化科|内分泌科|内科|外科|中医科|眼科|耳鼻喉科|口腔科|妇科|儿科)"
@@ -318,6 +319,13 @@ def normalize_text(text: str) -> Tuple[str, List[str], List[str]]:
 
     out = re.sub(r"(\d{4})[-/](\d{1,2})[-/](\d{1,2})", _repl_iso_date, out)
 
+    # 2b. Registration codes like REG-0001 -> 零零零一 (avoid raw English in Mandarin model)
+    def _repl_reg_id(m: re.Match) -> str:
+        rules.append("reg_id")
+        return digits_to_spoken(m.group(1))
+
+    out = re.sub(r"(?<![a-zA-Z])REG[- ]?(\d+)(?!\d)", _repl_reg_id, out, flags=re.IGNORECASE)
+
     # 3. Year + month/day
     def _repl_cn_year(m: re.Match) -> str:
         rules.append("cn_year")
@@ -575,7 +583,7 @@ def _group_for_prosody(normalized: str, action: Optional[str]) -> List[Tuple[str
     """Group normalized text into semantic segments while keeping date+period intact."""
     working = normalized
 
-    if action == "confirm":
+    if action in CONFIRM_ACTIONS:
         m = _CONFIRM_TAIL_RE.match(working)
         if m and m.group(1):
             working = f"{m.group(1).strip()},{m.group(2)}{m.group(3)}"
@@ -587,7 +595,7 @@ def _group_for_prosody(normalized: str, action: Optional[str]) -> List[Tuple[str
         sub_clauses = _split_long_clause(part, max_chars=16)
         for idx, sub in enumerate(sub_clauses):
             is_major = sub.endswith((".", "?", "!")) or (
-                action == "confirm" and idx == len(sub_clauses) - 1
+                action in CONFIRM_ACTIONS and idx == len(sub_clauses) - 1
             )
             final_parts.append((sub, is_major))
 
@@ -642,7 +650,7 @@ def _process_tn_psp_ec(
 
     # For confirmations, gently isolate confirmation tail before entity parsing
     working = normalized
-    if action == "confirm":
+    if action in CONFIRM_ACTIONS:
         m = _CONFIRM_TAIL_RE.match(working)
         if m and m.group(1):
             working = f"{m.group(1).strip()},{m.group(2)}{m.group(3)}"
@@ -775,13 +783,13 @@ def _process_tn_psp_ec(
             is_major = (
                 punct_char_after[i] in ".?!"
                 or _is_entity_end(i)
-                or action == "confirm"
+                or action in CONFIRM_ACTIONS
             )
         elif tags[i] == 2 and not _inside_entity(i):
             # Break at neural #3 phrase boundary if both sides are substantial (avoid tiny shards)
             if cur_len >= 4 and rem_len >= 3:
                 should_split = True
-                is_major = _is_entity_end(i) or (action == "confirm")
+                is_major = _is_entity_end(i) or (action in CONFIRM_ACTIONS)
         elif cur_len >= 16 and not _inside_entity(i) and rem_len >= 3:
             # Safety cap for Tacotron2 decoder stability if a very long clause has no #3
             if tags[i] >= 1 or cur_len >= 18:

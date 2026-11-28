@@ -140,9 +140,19 @@ class AdaptiveTextStrategy:
             return wait_ms
         return min(wait_ms, float(self.max_wait_ms))
 
+    _TARGETED_FILLERS = ("嗯", "呃", "啊", "额", "那个", "就是", "然后")
+    _INCOMPLETE_TAILS = ("月", "周", "星期", "礼拜", "挂", "约", "找", "看", "改", "换")
+
     def _is_short_answer(self, text: str, context: TurnContext | None) -> bool:
         if context is None or context.question_type not in ("targeted", "yes_no"):
             return False
+        if context.question_type == "targeted":
+            if text in self._TARGETED_FILLERS:
+                return False
+            if any(text.endswith(cue) for cue in self._INCOMPLETE_TAILS):
+                return False
+            if len(text) == 1 and text not in self.short_answer_patterns:
+                return False
         if any(text.endswith(pattern) for pattern in self.short_answer_patterns):
             return True
         return len(text) <= self.short_answer_max_chars

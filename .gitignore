@@ -18,6 +18,10 @@ venv/
 课程资料/
 语音信息处理综合实践/
 speech/
+a_module/models/**/*.onnx
+a_module/profiles.sqlite3
+integration/models/
+integration/runtime/
 
 # Generated WAV audio and intermediate experiment scratch directories (keep final JSON/JSONL & figures)
 *.wav

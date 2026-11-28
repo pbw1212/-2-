@@ -2,6 +2,7 @@
 
 import hashlib
 import shutil
+import subprocess
 import tarfile
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -24,13 +25,23 @@ RELEASES = "https://github.com/k2-fsa/sherpa-onnx/releases/download"
 def matches(path: Path, expected: str) -> bool:
     if not path.is_file():
         return False
+    digest = hashlib.sha256()
     with path.open("rb") as file:
-        return hashlib.file_digest(file, "sha256").hexdigest() == expected
+        for chunk in iter(lambda: file.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest() == expected
 
 
 def download(url: str, destination: Path) -> None:
     print(f"下载 {destination.name} …", flush=True)
-    with urlopen(url, timeout=90) as response, destination.open("wb") as file:
+    if shutil.which("curl"):
+        res = subprocess.run(
+            ["curl", "-fL", "--retry", "5", "--retry-delay", "2", "-C", "-", "-o", str(destination), url],
+            check=False,
+        )
+        if res.returncode == 0 and destination.is_file() and destination.stat().st_size > 0:
+            return
+    with urlopen(url, timeout=180) as response, destination.open("wb") as file:
         shutil.copyfileobj(response, file)
 
 

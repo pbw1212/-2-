@@ -429,23 +429,47 @@ class DialogManager(object):
     def _pending_slot(self, draft):
         for field in SLOT_ORDER:
             slot = draft.slots[field]
-            if slot.required and not slot.present:
-                return field, "missing"
             if slot.status == AMBIGUOUS:
                 return field, "ambiguous"
             if slot.status == NEEDS_CHECK:
                 return field, "check"
+            if slot.required and not slot.present:
+                return field, "missing"
         return None, None
+
+    def _relative_date_label(self, iso_date):
+        try:
+            target = datetime.date.fromisoformat(str(iso_date))
+            ref = datetime.date.fromisoformat(str(self.reference_date))
+        except (TypeError, ValueError):
+            return "日期"
+        delta_weeks = (target - datetime.timedelta(days=target.weekday())
+                       - (ref - datetime.timedelta(days=ref.weekday()))).days // 7
+        weekday_cn = "一二三四五六日"[target.weekday()]
+        if delta_weeks == 0:
+            return "本周" + weekday_cn
+        if delta_weeks == 1:
+            return "下周" + weekday_cn
+        if delta_weeks == 2:
+            return "下下周" + weekday_cn
+        return "周" + weekday_cn
 
     def _clarify_date_text(self, draft):
         slot = draft.slots["date"]
+        raw_text = (slot.raw or "").strip() or "这一天"
         parts = []
         for item in slot.candidates[:2]:
-            value = item.get("value")
-            label = item.get("label") or item.get("raw") or "候选"
+            if isinstance(item, dict):
+                value = item.get("value")
+                label = item.get("label") or item.get("raw")
+            else:
+                value = str(item)
+                label = None
+            if not label:
+                label = self._relative_date_label(value)
             parts.append("%s（%s）" % (label, _md(value)))
         if len(parts) == 2:
-            return "您说的是哪一周的周五？%s还是%s？" % (parts[0], parts[1])
+            return "您说的%s是哪一天？%s还是%s？" % (raw_text, parts[0], parts[1])
         return "请问您说的是具体哪一天？"
 
     def _restate_text(self, draft):
